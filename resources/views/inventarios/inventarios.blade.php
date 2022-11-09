@@ -25,12 +25,7 @@
     <tbody id="myTable">
         @foreach ($cantidadEntradas as $inventario)
         <tr>
-            <td data-label="Codigo articulo"></td>
-            <td data-label="Tipo articulo"></td>
-            <td data-label="Descripcion articulo"></td>
-            <td data-label="Stock"></td>
-
-            </form>
+    
             <td data-label="codigo">
                 {{$inventario["codigo"]}}
             </td>
