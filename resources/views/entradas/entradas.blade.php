@@ -32,7 +32,7 @@
             </button>
             <button class="btn_download">
                 <a href="{{route('excel_entrada')}}">
-                    <span>EXEL</span>
+                    <span>EXCEL</span>
                 </a>
             </button>
             <button class="btn_download">
