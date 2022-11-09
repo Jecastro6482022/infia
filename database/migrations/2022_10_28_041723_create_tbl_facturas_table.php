@@ -24,11 +24,11 @@ return new class extends Migration
             $table->double('total');
             $table->String('descripcion', 150);
             $table->integer('cod_articulo');
-            $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos');
+            $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos')->onDelete('cascade');
             $table->integer('nit_empresa')->nullable();
-            $table->foreign('nit_empresa')->references('nit_empresa')->on('tbl_empresas');
+            $table->foreign('nit_empresa')->references('nit_empresa')->on('tbl_empresas')->onDelete('cascade');
             $table->integer('id_user')->nullable();
-            $table->foreign('id_user')->references('id_user')->on('tbl_usuarios');
+            $table->foreign('id_user')->references('id_user')->on('tbl_usuarios')->onDelete('set null');
             $table->timestamps();
         });
     }

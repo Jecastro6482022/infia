@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_empresas', function (Blueprint $table) {
-            $table->integer('nit_empresa',10);
+            $table->integer('nit_empresa', 10);
             $table->String('nom_empresa', 30);
             $table->String('tel_empresa', 15);
             $table->String('direccion_empresa', 30);
             $table->String('email_empresa', 30);
-            $table->integer('id_user');
-            $table->foreign('id_user')->references('id_user')->on('tbl_usuarios');
+            $table->integer('id_user')->nullable();
+            $table->foreign('id_user')->references('id_user')->on('tbl_usuarios')->onDelete('set null');
 
             $table->timestamps();
         });

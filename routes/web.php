@@ -61,6 +61,8 @@ Route::get('/Usuarios/editar/{usuario}', [usuarios::class, 'edit'])->name('edit_
 Route::patch('/Usuarios/editar/{usuario}', [usuarios::class, 'update'])->name('update_usuario');
 Route::delete('/Usuarios/ver/{usuario}', [usuarios::class, 'destroy'])->name('delete_usuario');
 
+
+
 //vista roles
 Route::view('/Usuario/Registro/Roles', 'usuarios.roles')->name('crear_rol');
 Route::post('/Usuario/Registro/Roles', [roles::class, 'store'])->name('post_crear_rol');
