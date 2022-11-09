@@ -37,6 +37,7 @@ class usuarios extends Controller
         $pdf = PDF::loadView('pdf.usuarios', compact('usuarios'))->setPaper('a4', 'landscape');
         return $pdf->stream('usuarios.pdf');
     }
+
     public function store(Request $request)
     {
         $user = DB::table('tbl_usuarios')
@@ -120,7 +121,7 @@ class usuarios extends Controller
             'nombres' => 'required|max:50',
             'apellidos' => 'required|max:50',
             'fecha' => 'required|max:50|date',
-            'telefono' => 'required|max:10|integer',
+            'telefono' => 'required|max:10',
             'direccion' => 'required|max:20',
             'rol' => 'required|max:20',
         ]);
@@ -137,7 +138,7 @@ class usuarios extends Controller
         $usuario->cod_rol = $request->rol;
         $usuario->save();
         session()->flash('actualizado', 'El usuario a sido editado con exito');
-        return redirect()->route('reg_usuario')->with('guardado', 'La Empresa a sido guardada con exito');
+        return redirect()->route('ver_usuario')->with('actualizado', 'El usuario a sido editado con exito');
         return view('usuarios.editar_usuario', compact('usuario'));
     }
 

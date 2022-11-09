@@ -118,6 +118,12 @@
 </div>
 
 <!-- Script js -->
+@if (session('actualizado'))
+<script>
+    guardado('Actualizacion Exitosa', '<?php echo session('actualizado') ?>');
+</script>
+@endif
+
 @section('script')
 {{ asset('js/eliminar.js')}}
 @stop

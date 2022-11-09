@@ -32,7 +32,7 @@
 @stop
 
 @section('seccion')
-<form class="registrar_usuario" action="route('update_usuario')" method="POST" >
+<form class="registrar_usuario" action="{{route('update_usuario',$usuario)}}" method="POST" >
 @csrf 
 @method('PATCH')
     <h2 class="form_titulo">Editar usuario</h2>
@@ -51,7 +51,7 @@
         </div>
         <div class="from_group">
             <input type="text" id="telefono" class="from_input" placeholder="Teléfono" name="telefono"
-            required maxlength="10" minlength="10" pattern="^[0-9]+" value="{{$usuario->tipo_telefono_user}}">
+            required maxlength="10" minlength="10" pattern="^[0-9]+" value="{{$usuario->telefono_user}}">
         </div>
         <div class="from_group">
             <input type="text" id="direccion" class="from_input" placeholder="Direccion" name="direccion"
@@ -59,7 +59,7 @@
         </div>
         <div class="from_group">
             <input type="password" id="Contraseña" class="from_input" placeholder="Contraseña" name="contraseña"
-            required minlength="6" value="{{$usuario->tipo_contraseña_user}}">
+            required minlength="6" value="{{$usuario->contraseña_user}}">
         </div>
         <div class="from_group">
             <input type="email" id="e_mail" class="from_input" placeholder="E-mail" name="email"
