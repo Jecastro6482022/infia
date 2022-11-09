@@ -31,7 +31,8 @@ class entradas extends Controller
             'cod_articulo' => 'required|max:10',
             'tipo' => 'required|max:30',
             'cantidad' => 'required|max:20',
-            'causal' => 'required|max:100',
+
+
             'num_factura' => 'max:50',
         ]);
 

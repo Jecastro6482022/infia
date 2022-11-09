@@ -10,6 +10,7 @@ use App\Http\Controllers\entradas;
 use App\Http\Controllers\roles;
 use App\Http\Controllers\salidas;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\inventario;
 
 /*
 |--------------------------------------------------------------------------
@@ -116,6 +117,5 @@ Route::get('/Entradas/Ver', [entradas::class, 'index'])->name('ver_entrada');
 //vistas Inventarios
 Route::view('/Inventarios/Ver', 'inventarios.inventarios')->name('ver_inventario');
 
-
-
 Route::post('/Login', [usuarios::class, 'login'])->name('login');
+Route::get('/Inventarios/Ver', [inventario::class, 'index'])->name('ver_inventario');

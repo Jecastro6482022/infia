@@ -47,6 +47,7 @@
             </tr>
         </thead>
         <tbody id="myTable">
+            @foreach ($cantidadEntradas as $inventario)
             <tr>
                 <td data-label="Codigo articulo"></td>
                 <td data-label="Tipo articulo"></td>
@@ -54,7 +55,21 @@
                 <td data-label="Stock"></td>
 
                 </form>
+                <td data-label="codigo">
+                    {{$inventario["codigo"]}}
+                </td>
+                <td data-label="Nombre">
+                    {{$inventario["tipoArticulo"]}}
+                </td>
+                <td data-label="Teléfono">
+                    {{$inventario["descArticulo"]}}
+                </td>
+                <td data-label="Dirección">
+                    {{$inventario["cantidad"]}}
+                </td>
             </tr>
+
+            @endforeach
         </tbody>
     </table>
     <script>
