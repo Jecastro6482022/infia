@@ -29,9 +29,9 @@ class roles extends Controller
         return view('usuarios.roles', compact('roles'));
     }
 
-    public function edit(tbl_roles $rol)
+    public function edit(tbl_roles $roles)
     {
-
+        
         return view('usuarios.roles', compact('rol'));
     }
 
@@ -43,12 +43,13 @@ class roles extends Controller
 
         ]);
      
-        $rol = new tbl_roles();
         $rol->cod_rol = $request->codigo;
         $rol->nom_rol = $request->nombre;
         $rol->save();
         session()->flash('actualizado', 'El usuario a sido editado con exito');
-        return view('usuarios.roles', compact('rol'));
+        $roles = tbl_roles::all();
+        return redirect()->route('post_crear_rol') -> with('guardado', 'Rol Actualizado');
+        return view('usuarios.roles', compact('rol','roles'));
     }
 
     public function destroy(tbl_roles $rol)

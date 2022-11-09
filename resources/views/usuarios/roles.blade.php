@@ -92,6 +92,10 @@
                                 @method('PATCH')
                                 <div class="form_container">
                                     <div class="from_group">
+                                        <input type="text" id="cod_rol" class="from_input" placeholder="codigo de rol" name="codigo"
+                                            value="{{$rol->cod_rol}}" readonly onmousedown="return false;">
+                                    </div>
+                                    <div class="from_group">
                                         <input type="text" id="nom_rol" class="from_input" placeholder="Nombre de rol" name="nombre"
                                             value="{{$rol->nom_rol}}" required>
                                     </div>
