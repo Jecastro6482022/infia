@@ -31,7 +31,7 @@
             </button>
             <button class="btn_download">
                 <a href="{{route('excel_factura')}}">
-                    <span>EXEL</span>
+                    <span>EXCEL</span>
                 </a>
             </button>
             <button class="btn_download">
