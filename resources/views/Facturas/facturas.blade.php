@@ -40,7 +40,7 @@
                 </a>
             </button>
             <button class="btn_download">
-                <a href="{{route('print_facturas')}}" target="_blank"><span>IMPRIMIR</span>
+                <a href="{{route('print_factura')}}" target="_blank"><span>IMPRIMIR</span>
                 </a>
             </button>
         </div>

@@ -99,22 +99,19 @@
             text-align: end;
         }
     </style>
-    <title>Usuarios</title>
+    <title>Empresas</title>
 </head>
 
 <body>
     <div class="space">
         <img src="img/Logo letra blanca.png" height="70vw" alt="">
-        <h2>Usuarios Registrados</h2>
+        <h2>Empresas Registrados</h2>
     </div>
 
     <div class="logo">
 
     </div>
 
-    <div>
-
-    </div>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -127,7 +124,7 @@
             </tr>
         </thead>
         <tbody id="myTable">
-            @foreach ($empresas_view as $empresa)
+            @foreach ($empresas as $empresa)
             <tr>
                 <td data-label="Nit">
                     {{$empresa->nit_empresa}}

@@ -7,7 +7,7 @@ use App\Models\tbl_facturas;
 use App\Models\tbl_empresas;
 use App\Models\tbl_usuarios;
 use App\Models\tbl_articulos;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;

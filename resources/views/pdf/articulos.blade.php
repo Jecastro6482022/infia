@@ -99,13 +99,13 @@
             text-align: end;
         }
     </style>
-    <title>Usuarios</title>
+    <title>Articulos</title>
 </head>
 
 <body>
     <div class="space">
         <img src="img/Logo letra blanca.png" height="70vw" alt="">
-        <h2>Usuarios Registrados</h2>
+        <h2>Articulos Registrados</h2>
     </div>
 
     <div class="logo">
@@ -130,7 +130,7 @@
             </tr>
         </thead>
         <tbody id="myTable">
-            @foreach ($articulos_view as $articulo )
+            @foreach ($articulos as $articulo )
             <tr>
                 <td data-label="Codigo articulo">
                     {{$articulo->cod_articulo}}

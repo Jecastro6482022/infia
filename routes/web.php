@@ -38,6 +38,15 @@ Route::get('/Facturas/registro', facturas::class . '@index_reg')->name('reg_fact
 Route::get('/Facturas/editar/{factura}', facturas::class . '@edit')->name('edit_factura');
 Route::patch('Facturas/editar/{factura}', facturas::class . '@update')->name('update_factura');
 
+Route::get('facturas.pdf', [facturas::class, 'exportPdf'])->name('pdf_factura');
+Route::get('facturas.print', [facturas::class, 'printPdf'])->name('print_factura');
+Route::get('factura.csv', function (UsersExport $usersExport) {
+    return $usersExport->download('facturas.csv');
+})->name('csv_factura');
+Route::get('factura.xlsx', function (UsersExport $usersExport) {
+    return $usersExport->download('factura.xlsx');
+})->name('excel_factura');
+
 //vistas Empresas
 Route::view('/Empresas/registro', 'Empresas.registrar_empresa')->name('reg_empresa');
 Route::post('/Empresas/registro', empresas::class . '@store')->name('post_reg_empresa');
@@ -108,11 +117,30 @@ Route::post('/Salidas/registro', [salidas::class, 'store'])->name('post_reg_sali
 Route::get('/Salidas/registro', [salidas::class, 'index2'])->name('reg_salida');
 Route::get('/Salidas/ver', [salidas::class, 'index'])->name('ver_salida');
 
+Route::get('salidas.pdf', [salidas::class, 'exportPdf'])->name('pdf_salida');
+Route::get('salidas.print', [salidas::class, 'printPdf'])->name('print_salida');
+Route::get('salidas.csv', function (UsersExport $usersExport) {
+    return $usersExport->download('salidas.csv');
+})->name('csv_salida');
+Route::get('salidas.xlsx', function (UsersExport $usersExport) {
+    return $usersExport->download('salidas.xlsx');
+})->name('excel_salida');
+
 //vistas Entradas
 Route::view('/Entradas/registro', 'entradas.registrar_entrada')->name('reg_entrada');
 Route::post('/Entradas/registro', [entradas::class, 'store'])->name('post_reg_entrada');
 Route::get('/Entradas/registro', [entradas::class, 'index2'])->name('reg_entrada');
 Route::get('/Entradas/Ver', [entradas::class, 'index'])->name('ver_entrada');
+
+Route::get('entradas.pdf', [entradas::class, 'exportPdf'])->name('pdf_entrada');
+Route::get('entradas.print', [entradas::class, 'printPdf'])->name('print_entrada');
+Route::get('entradas.csv', function (UsersExport $usersExport) {
+    return $usersExport->download('entradas.csv');
+})->name('csv_entrada');
+Route::get('entradas.xlsx', function (UsersExport $usersExport) {
+    return $usersExport->download('entradas.xlsx');
+})->name('excel_entrada');
+
 
 //vistas Inventarios
 Route::view('/Inventarios/Ver', 'inventarios.inventarios')->name('ver_inventario');

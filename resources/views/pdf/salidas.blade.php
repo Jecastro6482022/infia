@@ -99,13 +99,13 @@
             text-align: end;
         }
     </style>
-    <title>Usuarios</title>
+    <title>Salidas</title>
 </head>
 
 <body>
     <div class="space">
         <img src="img/Logo letra blanca.png" height="70vw" alt="">
-        <h2>Usuarios Registrados</h2>
+        <h2>Salidas Registrados</h2>
     </div>
 
     <div class="logo">

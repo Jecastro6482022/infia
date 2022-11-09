@@ -34,7 +34,7 @@ class inventario extends Controller
         $restaInventario = 0;
         $totalInventario = [];
 
-        
+
 
         for ($i = 0; $i < count($entradas); $i++) {
             for ($j = 0; $j < count($salidas); $j++) {
@@ -42,14 +42,14 @@ class inventario extends Controller
                     $restaInventario = $entradas[$i]->entrada - $salidas[$j]->salida;
                 }
             }
-            if ($restaInventario<0) {
+            if ($restaInventario < 0) {
                 continue;
             }
             $infoArticulo = DB::table('tbl_articulos')
                 ->selectRaw('tipo_articulo as tipo,descripcion_articulo as descripcion')
                 ->where('cod_articulo', $entradas[$i]->cod_articulo)->get();
-           
-             array_push($totalInventario, [
+
+            array_push($totalInventario, [
                 "codigo" => $entradas[$i]->cod_articulo,
                 "tipoArticulo" => $infoArticulo[0]->tipo,
                 "descArticulo" => $infoArticulo[0]->descripcion,

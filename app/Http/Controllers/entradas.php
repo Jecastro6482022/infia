@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\tbl_registros;
 use App\Models\tbl_facturas;
 use App\Models\tbl_articulos;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class entradas extends Controller
 {
