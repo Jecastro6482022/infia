@@ -20,8 +20,8 @@ return new class extends Migration
             $table->String('causal', 100);
             $table->integer('num_factura')->nullable();
             $table->foreign('num_factura')->references('num_factura')->on('tbl_facturas')->nullable();
-            $table->integer('cod_articulo');
-            $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos');
+            $table->integer('cod_articulo')->nullable();
+            $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos')->onDelete('set null');
             $table->timestamps();
         });
     }

@@ -22,8 +22,8 @@ return new class extends Migration
             $table->date('fecha_ingreso', 20);
             $table->String('telefono_user', 10);
             $table->String('direccion_user', 30);
-            $table->integer('cod_rol');
-            $table->foreign('cod_rol')->references('cod_rol')->on('tbl_roles');
+            $table->integer('cod_rol')->nullable();
+            $table->foreign('cod_rol')->references('cod_rol')->on('tbl_roles')->onDelete('set null');
             $table->timestamps();
         });
     }
