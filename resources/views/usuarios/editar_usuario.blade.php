@@ -32,14 +32,13 @@
 @stop
 
 @section('seccion')
-<<<<<<< HEAD <form class="registrar_usuario" action="{{route('update_usuario',$usuario)}}" method="POST">
+<form class="registrar_usuario" action="{{route('update_usuario',$usuario)}}" method="POST">
     @csrf
     @method('PATCH')
-    =======
+
     <form class="registrar_usuario" action="{{route('update_usuario',$usuario)}}" method="POST">
         @csrf
         @method('PATCH')
-        >>>>>>> a462af06cf77a36ea7df70c231ab3e27f66a84bb
         <h2 class="form_titulo">Editar usuario</h2>
         <div class="form_container">
             <div class="from_group">
@@ -53,16 +52,12 @@
             </div>
             <div class="from_group">
                 <input type="text" id="telefono" class="from_input" placeholder="Teléfono" name="telefono" required maxlength="10" minlength="10" pattern="^[0-9]+" value="{{$usuario->telefono_user}}">
-                <input type="text" id="telefono" class="from_input" placeholder="Teléfono" name="telefono" required maxlength="10" minlength="10" pattern="^[0-9]+" value="{{$usuario->telefono_user}}">
             </div>
             <div class="from_group">
                 <input type="text" id="direccion" class="from_input" placeholder="Direccion" name="direccion" required maxlength="30" value="{{$usuario->direccion_user}}">
             </div>
             <div class="from_group">
-                <<<<<<< HEAD <input type="password" id="Contraseña" class="from_input" placeholder="Contraseña" name="contraseña" required minlength="6" value="{{$usuario->contraseña_user}}">
-                    =======
-                    <input type="password" id="Contraseña" class="from_input" placeholder="Contraseña" name="contraseña" required minlength="6" value="{{$usuario->contraseña_user}}">
-                    >>>>>>> a462af06cf77a36ea7df70c231ab3e27f66a84bb
+            <input type="password" id="Contraseña" class="from_input" placeholder="Contraseña" name="contraseña" required minlength="6" value="{{$usuario->contraseña_user}}">
             </div>
             <div class="from_group">
                 <input type="email" id="e_mail" class="from_input" placeholder="E-mail" name="email" required value="{{$usuario->email_user}}">
