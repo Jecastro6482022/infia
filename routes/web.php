@@ -8,6 +8,7 @@ use App\Http\Controllers\facturas;
 use App\Http\Controllers\entradas;
 use App\Http\Controllers\roles;
 use App\Http\Controllers\salidas;
+use App\Http\Controllers\inventario;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -85,3 +86,5 @@ Route::get('/Entradas/Ver', [entradas::class, 'index'])->name('ver_entrada');
 
 //vistas Inventarios
 Route::view('/Inventarios/Ver', 'inventarios.inventarios')->name('ver_inventario');
+Route::get('/Inventarios/Ver', [inventario::class, 'index'])->name('ver_inventario');
+
