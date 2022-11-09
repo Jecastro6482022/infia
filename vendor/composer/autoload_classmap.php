@@ -19,6 +19,8 @@ return array(
     'App\\Http\\Controllers\\empresas' => $baseDir . '/app/Http/Controllers/empresas.php',
     'App\\Http\\Controllers\\entradas' => $baseDir . '/app/Http/Controllers/entradas.php',
     'App\\Http\\Controllers\\facturas' => $baseDir . '/app/Http/Controllers/facturas.php',
+    'App\\Http\\Controllers\\inventario' => $baseDir . '/app/Http/Controllers/inventario.php',
+    'App\\Http\\Controllers\\loginController' => $baseDir . '/app/Http/Controllers/loginController.php',
     'App\\Http\\Controllers\\roles' => $baseDir . '/app/Http/Controllers/roles.php',
     'App\\Http\\Controllers\\salidas' => $baseDir . '/app/Http/Controllers/salidas.php',
     'App\\Http\\Controllers\\usuarios' => $baseDir . '/app/Http/Controllers/usuarios.php',

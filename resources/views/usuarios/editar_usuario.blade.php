@@ -53,7 +53,7 @@
             <input type="text" id="direccion" class="from_input" placeholder="Direccion" name="direccion" required maxlength="30" value="{{$usuario->direccion_user}}">
         </div>
         <div class="from_group">
-            <input type="password" id="Contraseña" class="from_input" placeholder="Contraseña" name="contraseña" required minlength="6" value="{{$usuario->tipo_contraseña_user}}">
+            <input type="password" id="Contraseña" class="from_input" placeholder="Contraseña" name="contraseña" required minlength="6" value="{{$usuario->contraseña_user}}">
         </div>
         <div class="from_group">
             <input type="email" id="e_mail" class="from_input" placeholder="E-mail" name="email" required value="{{$usuario->email_user}}">
