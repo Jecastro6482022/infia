@@ -7,20 +7,34 @@ use Illuminate\Http\Request;
 use App\Models\tbl_registros;
 use App\Models\tbl_facturas;
 use App\Models\tbl_articulos;
+use Barryvdh\DomPDF\PDF;
 
 class entradas extends Controller
 {
+    public function exportPdf()
+    {
+        $entradas = tbl_registros::get();
+        $pdf = PDF::loadView('pdf.entradas', compact('entradas'))->setPaper('a4', 'landscape');
+        return $pdf->download('entradas.pdf');
+    }
+    public function printPdf()
+    {
+        $entradas = tbl_registros::get();
+        $pdf = PDF::loadView('pdf.entradas', compact('entradas'))->setPaper('a4', 'landscape');
+        return $pdf->stream('entradas.pdf');
+    }
+
     public function store(Request $request)
-    {   
-       /* El validate funciona, pero los datos que se estan enviando no cumplen    */
-       $request->validate([
+    {
+        /* El validate funciona, pero los datos que se estan enviando no cumplen    */
+        $request->validate([
             'cod_articulo' => 'required|max:10',
             'tipo' => 'required|max:30',
             'cantidad' => 'required|max:20',
             'causal' => 'required|max:100',
             'num_factura' => 'max:50',
         ]);
-     
+
         $entradas = new tbl_registros();
         $entradas->cod_articulo = $request->cod_articulo;
         $entradas->tipo = "entrada";
@@ -28,19 +42,20 @@ class entradas extends Controller
         $entradas->causal = $request->causal;
         $entradas->num_factura = $request->num_factura;
         $entradas->save();
-        return redirect()->route('post_reg_entrada') -> with('guardado', 'Tarea creada correctamente');
+        return redirect()->route('post_reg_entrada')->with('guardado', 'Tarea creada correctamente');
     }
 
-    public function index() {
+    public function index()
+    {
 
         $entradas = tbl_registros::all();
         return view('entradas.entradas', compact('entradas'));
     }
 
-    public function index2(){
+    public function index2()
+    {
         $articulos_view = tbl_articulos::all();
         $facturas_view = tbl_facturas::all();
-        return view('entradas.registrar_entrada', compact('articulos_view','facturas_view'));
+        return view('entradas.registrar_entrada', compact('articulos_view', 'facturas_view'));
     }
-
 }

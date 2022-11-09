@@ -5,9 +5,22 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tbl_articulos;
+use Barryvdh\DomPDF\PDF;
 
 class articulos extends Controller
 {
+    public function exportPdf()
+    {
+        $articulos = tbl_articulos::get();
+        $pdf = PDF::loadView('pdf.articulos', compact('articulos'))->setPaper('a4', 'landscape');
+        return $pdf->download('articulos.pdf');
+    }
+    public function printPdf()
+    {
+        $articulos = tbl_articulos::get();
+        $pdf = PDF::loadView('pdf.articulos', compact('articulos'))->setPaper('a4', 'landscape');
+        return $pdf->stream('articulos.pdf');
+    }
     public function store(Request $request)
     {
         $request->validate([

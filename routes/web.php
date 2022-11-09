@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\UsersExport;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\articulos;
 use App\Http\Controllers\usuarios;
@@ -8,6 +9,8 @@ use App\Http\Controllers\facturas;
 use App\Http\Controllers\entradas;
 use App\Http\Controllers\roles;
 use App\Http\Controllers\salidas;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,11 +24,11 @@ use App\Http\Controllers\salidas;
 
 /*Pagina comercial*/
 
-// Route::view('/', 'home')->name('home');
-// Route::view('/Login', 'main')->name('login');
-// Route::view('/Main', 'main')->name('main');
+Route::view('/', 'home')->name('home');
+Route::view('/Login', 'login')->name('login');
+Route::view('/Main', 'main')->name('main');
 
-Route::view('/', 'main')->name('main');
+// Route::view('/', 'main')->name('main');
 //vistas Facturas
 Route::view('/Facturas/registro', 'Facturas.registrar_factura')->name('reg_factura');
 Route::post('/Facturas/registro', facturas::class . '@store')->name('post_reg_factura');
@@ -43,6 +46,15 @@ Route::get('/Empresas/editar/{empresa}', empresas::class . '@edit')->name('edit_
 Route::patch('/Empresas/{empresa}', empresas::class . '@update')->name('update_empresa');
 Route::delete('/Empresas/{empresa}', empresas::class . '@destroy')->name('delete_empresa');
 
+Route::get('empresas.pdf', [empresas::class, 'exportPdf'])->name('pdf_empresa');
+Route::get('empresas.print', [empresas::class, 'printPdf'])->name('print_empresa');
+Route::get('empresa.csv', function (UsersExport $usersExport) {
+    return $usersExport->download('empresas.csv');
+})->name('csv_empresa');
+Route::get('empresa.xlsx', function (UsersExport $usersExport) {
+    return $usersExport->download('empresa.xlsx');
+})->name('excel_empresa');
+
 
 //vistas Articulos
 Route::view('/Articulos/registro', 'Articulos.registrar_articulo')->name('reg_articulo');
@@ -52,6 +64,15 @@ Route::get('/Articulos/{articulo}/editar', articulos::class . '@edit')->name('ed
 Route::patch('/Articulos/{articulo}', articulos::class . '@update')->name('update_articulo');
 Route::delete('/Articulos/{articulo}', articulos::class . '@destroy')->name('delete_articulo');
 
+Route::get('articulos.pdf', [articulos::class, 'exportPdf'])->name('pdf_articulo');
+Route::get('articulos.print', [articulos::class, 'printPdf'])->name('print_articulo');
+Route::get('articulos.csv', function (UsersExport $usersExport) {
+    return $usersExport->download('articulo.csv');
+})->name('csv_articulo');
+Route::get('articulos.xlsx', function (UsersExport $usersExport) {
+    return $usersExport->download('articulo.xlsx');
+})->name('excel_articulo');
+
 //vistas Usuarios
 Route::view('/Usuarios/registro', 'usuarios.registrar_usuario')->name('reg_usuario');
 Route::post('/Usuarios/registro', [usuarios::class, 'store'])->name('post_reg_usuario');
@@ -60,6 +81,15 @@ Route::get('/Usuarios/registro', [usuarios::class, 'index2'])->name('reg_usuario
 Route::get('/Usuarios/editar/{usuario}', [usuarios::class, 'edit'])->name('edit_usuario');
 Route::patch('/Usuarios/editar/{usuario}', [usuarios::class, 'update'])->name('update_usuario');
 Route::delete('/Usuarios/ver/{usuario}', [usuarios::class, 'destroy'])->name('delete_usuario');
+
+Route::get('usuarios.pdf', [usuarios::class, 'exportPdf'])->name('pdf_user');
+Route::get('usuarios.print', [usuarios::class, 'printPdf'])->name('print_user');
+Route::get('usuarios.csv', function (UsersExport $usersExport) {
+    return $usersExport->download('users.csv');
+})->name('csv_user');
+Route::get('usuarios.xlsx', function (UsersExport $usersExport) {
+    return $usersExport->download('users.xlsx');
+})->name('excel_user');
 
 
 
@@ -85,3 +115,7 @@ Route::get('/Entradas/Ver', [entradas::class, 'index'])->name('ver_entrada');
 
 //vistas Inventarios
 Route::view('/Inventarios/Ver', 'inventarios.inventarios')->name('ver_inventario');
+
+
+
+Route::post('/Login', [usuarios::class, 'login'])->name('login');

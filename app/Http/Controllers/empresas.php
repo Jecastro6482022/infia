@@ -5,10 +5,23 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\tbl_empresas;
 use App\Models\tbl_usuarios;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 class empresas extends Controller
 {
+    public function exportPdf()
+    {
+        $empresas = tbl_empresas::get();
+        $pdf = PDF::loadView('pdf.empresas', compact('empresas'))->setPaper('a4', 'landscape');
+        return $pdf->download('empresas.pdf');
+    }
+    public function printPdf()
+    {
+        $empresas = tbl_empresas::get();
+        $pdf = PDF::loadView('pdf.empresas', compact('empresas'))->setPaper('a4', 'landscape');
+        return $pdf->stream('empresas.pdf');
+    }
     public function store(Request $request)
     {
         $request->validate([
@@ -32,8 +45,9 @@ class empresas extends Controller
         $empresas_view = tbl_empresas::all();
         return view('Empresas.empresas', compact('empresas_view'));
     }
-    
-    public function index2(){
+
+    public function index2()
+    {
         $usuarios_view = tbl_usuarios::all();
         return view('Empresas.registrar_empresa', compact('usuarios_view'));
     }
@@ -41,9 +55,9 @@ class empresas extends Controller
     public function edit(tbl_empresas $empresa)
     {
         $usuarios_view = tbl_usuarios::all();
-        return view('Empresas.editar_empresa', compact('empresa','usuarios_view'));
+        return view('Empresas.editar_empresa', compact('empresa', 'usuarios_view'));
     }
-    
+
     public function update(Request $request, tbl_empresas $empresas)
     {
         $request->validate([
@@ -62,4 +76,3 @@ class empresas extends Controller
         return view('Articulos.editar_articulo', compact('articulo'));
     }
 }
-

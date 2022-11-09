@@ -180,6 +180,7 @@ class ComposerStaticInit9f2d77aafc3a13e41d998e1afd18f56c
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Barryvdh\\DomPDF\\' => 16,
         ),
         'A' => 
         array (
@@ -539,6 +540,10 @@ class ComposerStaticInit9f2d77aafc3a13e41d998e1afd18f56c
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'Barryvdh\\DomPDF\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src',
+        ),
         'Asm89\\Stack\\' => 
         array (
             0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
@@ -569,6 +574,11 @@ class ComposerStaticInit9f2d77aafc3a13e41d998e1afd18f56c
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Exports\\ArticulosExport' => __DIR__ . '/../..' . '/app/Exports/ArticulosExport.php',
+        'App\\Exports\\EmpresasExport' => __DIR__ . '/../..' . '/app/Exports/EmpresasExport.php',
+        'App\\Exports\\FacturasExport' => __DIR__ . '/../..' . '/app/Exports/FacturasExport.php',
+        'App\\Exports\\RegistrosExport' => __DIR__ . '/../..' . '/app/Exports/RegistrosExport.php',
+        'App\\Exports\\UsersExport' => __DIR__ . '/../..' . '/app/Exports/UsersExport.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\articulos' => __DIR__ . '/../..' . '/app/Http/Controllers/articulos.php',
         'App\\Http\\Controllers\\ciudades' => __DIR__ . '/../..' . '/app/Http/Controllers/ciudades.php',
@@ -603,6 +613,9 @@ class ComposerStaticInit9f2d77aafc3a13e41d998e1afd18f56c
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Barryvdh\\DomPDF\\Facade\\Pdf' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade/Pdf.php',
+        'Barryvdh\\DomPDF\\PDF' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/PDF.php',
+        'Barryvdh\\DomPDF\\ServiceProvider' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/ServiceProvider.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',

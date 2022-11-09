@@ -7,12 +7,25 @@ use App\Models\tbl_facturas;
 use App\Models\tbl_empresas;
 use App\Models\tbl_usuarios;
 use App\Models\tbl_articulos;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class facturas extends Controller
 {
+    public function exportPdf()
+    {
+        $facturas = tbl_facturas::get();
+        $pdf = PDF::loadView('pdf.facturas', compact('facturas'))->setPaper('a4', 'landscape');
+        return $pdf->download('facturas.pdf');
+    }
+    public function printPdf()
+    {
+        $facturas = tbl_facturas::get();
+        $pdf = PDF::loadView('pdf.facturas', compact('facturas'))->setPaper('a4', 'landscape');
+        return $pdf->stream('facturas.pdf');
+    }
     public function store(Request $request)
     {
         $request->validate([

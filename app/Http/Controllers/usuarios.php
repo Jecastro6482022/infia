@@ -7,9 +7,36 @@ use App\Models\tbl_usuarios;
 use App\Models\tbl_roles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class usuarios extends Controller
 {
+    public function login(Request $request)
+    {
+        $usuarios = tbl_usuarios::get();
+        $credentials = $request->validate([
+            'email_user' => 'required|email|string',
+            'contraseña_user' => 'required|string'
+        ]);
+        if (Auth::attempt($credentials) == ($usuarios)) {
+            return view('main');
+        }
+        return view('login');
+    }
+
+    public function exportPdf()
+    {
+        $usuarios = tbl_usuarios::get();
+        $pdf = PDF::loadView('pdf.usuarios', compact('usuarios'))->setPaper('a4', 'landscape');
+        return $pdf->download('usuarios.pdf');
+    }
+    public function printPdf()
+    {
+        $usuarios = tbl_usuarios::get();
+        $pdf = PDF::loadView('pdf.usuarios', compact('usuarios'))->setPaper('a4', 'landscape');
+        return $pdf->stream('usuarios.pdf');
+    }
     public function store(Request $request)
     {
         $user = DB::table('tbl_usuarios')
@@ -31,7 +58,6 @@ class usuarios extends Controller
             if ($email) {
                 return redirect()->route('post_reg_usuario')->with('error', 'El email ' . $request->email . ' ya existe');
             }
-           
         } else {
 
             $request->validate([
@@ -74,12 +100,12 @@ class usuarios extends Controller
         return view('usuarios.registrar_usuario', compact('roles'));
     }
 
-  
+
 
     public function edit(tbl_usuarios $usuario)
     {
         $roles = tbl_roles::all();
-        return view('usuarios.editar_usuario', compact('usuario','roles'));
+        return view('usuarios.editar_usuario', compact('usuario', 'roles'));
     }
 
 
@@ -99,7 +125,7 @@ class usuarios extends Controller
             'rol' => 'required|max:20',
         ]);
 
-       
+
         $usuario->id_user = $request->id;
         $usuario->email_user = $request->email;
         $usuario->contraseña_user = $request->contraseña;

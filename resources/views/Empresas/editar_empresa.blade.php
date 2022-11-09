@@ -27,9 +27,9 @@
 @stop
 
 @section('seccion')
-<form class="registrar_usuario" action="route('update_empresa')" method="POST">
-@csrf 
-@method('PATCH')    
+<form class="registrar_usuario" action="{{route('update_empresa',$empresa)}}" method="POST">
+    @csrf
+    @method('PATCH')
     <div class="form_container">
         <h2 class="form_titulo">Editar empresa</h2>
         <div class="from_group">

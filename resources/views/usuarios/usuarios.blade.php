@@ -25,10 +25,25 @@
 
     <div class="alingdownload">
         <div class="downloads">
-            <button class="btn_download"><span>CSV</span></button>
-            <button class="btn_download"><span>EXEL</span></button>
-            <button class="btn_download"><span>PDF</span></button>
-            <button class="btn_download"><span>IMPRIMIR</span></button>
+            <button class="btn_download">
+                <a href="{{route('csv_user')}}">
+                    <span>CSV</span>
+                </a>
+            </button>
+            <button class="btn_download">
+                <a href="{{route('excel_user')}}">
+                    <span>EXEL</span>
+                </a>
+            </button>
+            <button class="btn_download">
+                <a href="{{route('pdf_user')}}">
+                    <span>PDF</span>
+                </a>
+            </button>
+            <button class="btn_download">
+                <a href="{{route('print_user')}}" target="_blank"><span>IMPRIMIR</span>
+                </a>
+            </button>
         </div>
         <input class="form" id="myInput" type="text" placeholder="Buscar ...">
     </div>

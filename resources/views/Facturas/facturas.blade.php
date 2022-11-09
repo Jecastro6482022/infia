@@ -22,7 +22,30 @@
 
 @section('seccion')
 <div class="tabla">
-    <input class="form" id="myInput" type="text" placeholder="Buscar ...">
+    <div class="alingdownload">
+        <div class="downloads">
+            <button class="btn_download">
+                <a href="{{route('csv_factura')}}">
+                    <span>CSV</span>
+                </a>
+            </button>
+            <button class="btn_download">
+                <a href="{{route('excel_factura')}}">
+                    <span>EXEL</span>
+                </a>
+            </button>
+            <button class="btn_download">
+                <a href="{{route('pdf_factura')}}">
+                    <span>PDF</span>
+                </a>
+            </button>
+            <button class="btn_download">
+                <a href="{{route('print_facturas')}}" target="_blank"><span>IMPRIMIR</span>
+                </a>
+            </button>
+        </div>
+        <input class="form" id="myInput" type="text" placeholder="Buscar ...">
+    </div>
     <table>
         <thead>
             <tr>
@@ -57,7 +80,7 @@
                 <td data-label="Nit">{{ $factura->nit_empresa }}</td>
                 <td data-label="Id usuario">{{ $factura->id_user }}</td>
                 <td data-label="Editar"><a href="{{ route('edit_factura', $factura) }}">Editar</a> </td>
-                
+
             </tr>
             @endforeach
         </tbody>

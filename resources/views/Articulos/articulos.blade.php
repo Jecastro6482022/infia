@@ -22,7 +22,30 @@
 @section('seccion')
 
 <div class="tabla">
-    <input class="form" id="myInput" type="text" placeholder="Buscar ...">
+    <div class="alingdownload">
+        <div class="downloads">
+            <button class="btn_download">
+                <a href="{{route('csv_articulo')}}">
+                    <span>CSV</span>
+                </a>
+            </button>
+            <button class="btn_download">
+                <a href="{{route('excel_articulo')}}">
+                    <span>EXEL</span>
+                </a>
+            </button>
+            <button class="btn_download">
+                <a href="{{route('pdf_articulo')}}">
+                    <span>PDF</span>
+                </a>
+            </button>
+            <button class="btn_download">
+                <a href="{{route('print_articulo')}}" target="_blank"><span>IMPRIMIR</span>
+                </a>
+            </button>
+        </div>
+        <input class="form" id="myInput" type="text" placeholder="Buscar ...">
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>

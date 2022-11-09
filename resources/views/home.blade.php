@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SADIDAS S.A.S</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
 </head>
+
 <body>
     <header>
         <nav>
@@ -22,7 +24,7 @@
                         <li><a href="#section2">Servicios</a></li>
                         <li><a href="#section4">Productos</a></li>
                         <li><a href="#section5">Contáctenos</a></li>
-                        <li><a href="login">INGRESAR</a></li>
+                        <li><a href="{{route('login')}}">INGRESAR</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +33,8 @@
             <div class="container">
                 <div id="contenido">
                     <h1>Nuestros productos <br>
-                        <b>para ti </b></h1>
+                        <b>para ti </b>
+                    </h1>
                     <P>Somos una PYME encargada al comercio y distribuidora de ropa deportiva, te invitamos a conocer nuestros productos ¡contáctate con nosotros!</P>
                     <button class="btn-primary" onclick="location.href='#section3'">Explore más</button>
                 </div>
@@ -45,21 +48,22 @@
                     <article>
                         <h2><img src="img/bandera.png" alt="icono" width="30px" height="40px"> MISIÓN</h2>
                         <p>Ser marca líder a nivel nacional ofreciendo prendas deportivas a bajos costos con la intención de promover la cultura deportiva.</p>
-                    </article>  
+                    </article>
                     <article>
                         <h2><img src="img/eye-free-icon-font.png" alt="icono" width="30px" height="40px"> VISIÓN</h2>
                         <p>En cinco años seremos competentes en la industria con un enfoque en obtener las mejores prendas deportivas en relación calidad - precio.</p>
                     </article>
                 </div>
-                <div class="fila welcome">  
+                <div class="fila welcome">
                     <article class="info">
                         <h3>¿Quiénes
-                            <b> somos?<b></h3>
-                        <p>Somos una ampresa ubicada en el sur de Bogotá específicamente en la localidad de Ciudad Bolivar la cual tiene como objeto social 
-                            la compra de materia prima (telas, hilos, ...), maquinaria e insumos (agujas, aceite, ...) con el fin de confeccionar ropa deportiva a 
+                            <b> somos?<b>
+                        </h3>
+                        <p>Somos una ampresa ubicada en el sur de Bogotá específicamente en la localidad de Ciudad Bolivar la cual tiene como objeto social
+                            la compra de materia prima (telas, hilos, ...), maquinaria e insumos (agujas, aceite, ...) con el fin de confeccionar ropa deportiva a
                             bajos precios para que sean asequible a cualquier persona independientemente de su presupuesto.
-                        </p>  
-                        <button>¿Quieres saber más? </button>   
+                        </p>
+                        <button>¿Quieres saber más? </button>
                     </article>
                     <article class="fotos">
                         <img src="img/welcome2.png" alt="imagen">
@@ -81,47 +85,47 @@
                     <h3>Explore nuestros <b>Servicios</b></h3>
                     <p>En total tenemos cuatro servicios los cuales pueden ser adquiridos por nuestros aliados.</p>
                 </article>
-            
-            <div class="fila">
-                <article class="card">
-                    <img src="img/maquina-de-coser.png" alt="">
-                    <h4><b>01</b></h4>
-                    <h4>Confección</h4>
-                    <P>Contamos con maquinaria calificada para poder brindar el mejor servicio en cuestión de armado de prendas, un ejemplo de los productos ya entregados es: </P>
-                    <ul>
-                        <li>Blusas</li>
-                        <li>Sudaderas</li>
-                        <li>Camisas ...</li>
-                    </ul>
-                </article>
 
-                <article class="card">
-                    <img src="img/maquina-de-corte-por-laser.png" alt="">
-                    <h4><b>02</b></h4>
-                    <h4>Corte</h4>
-                    <P>Se realiza corte textil de diferentes tipos de tela al igual <br> contamos con maquinaria especial para cada una de ellas: <br> </P>
-                    <br>
-                    <ul>
-                        <li>Vioto</li>
-                        <li>Acrílico</li>
-                        <li>Afelpado ...</li>
-                    </ul>
-                </article>
+                <div class="fila">
+                    <article class="card">
+                        <img src="img/maquina-de-coser.png" alt="">
+                        <h4><b>01</b></h4>
+                        <h4>Confección</h4>
+                        <P>Contamos con maquinaria calificada para poder brindar el mejor servicio en cuestión de armado de prendas, un ejemplo de los productos ya entregados es: </P>
+                        <ul>
+                            <li>Blusas</li>
+                            <li>Sudaderas</li>
+                            <li>Camisas ...</li>
+                        </ul>
+                    </article>
 
-                <article class="card">
-                    <img src="img/bordado.png" alt="">
-                    <h4><b>03</b></h4>
-                    <h4>Bordado</h4>
-                    <P> Existen diversos tipos de bordados, que se caracterizan por el relieve que presentan <br> por lo cual contamos con diferentes tipos de relieves para ti:</P>
-                
-                    <ul>
-                        <li>Lisos</li>
-                        <li>Realce</li>
-                        <li>Sobre puesto</li>
-                    </ul>
-                </article>
+                    <article class="card">
+                        <img src="img/maquina-de-corte-por-laser.png" alt="">
+                        <h4><b>02</b></h4>
+                        <h4>Corte</h4>
+                        <P>Se realiza corte textil de diferentes tipos de tela al igual <br> contamos con maquinaria especial para cada una de ellas: <br> </P>
+                        <br>
+                        <ul>
+                            <li>Vioto</li>
+                            <li>Acrílico</li>
+                            <li>Afelpado ...</li>
+                        </ul>
+                    </article>
 
-            </div>
+                    <article class="card">
+                        <img src="img/bordado.png" alt="">
+                        <h4><b>03</b></h4>
+                        <h4>Bordado</h4>
+                        <P> Existen diversos tipos de bordados, que se caracterizan por el relieve que presentan <br> por lo cual contamos con diferentes tipos de relieves para ti:</P>
+
+                        <ul>
+                            <li>Lisos</li>
+                            <li>Realce</li>
+                            <li>Sobre puesto</li>
+                        </ul>
+                    </article>
+
+                </div>
         </section>
         <section id="section3">
             <div class="container">
@@ -201,10 +205,10 @@
                         <input type="text" name="correo" placeholder="Correo">
                         <input type="text" name="ciudad" placeholder="Ciudad">
                         <textarea name="mensaje" placeholder="Describe lo que desea saber ..."></textarea>
-                        <button>Enviar</button>   
+                        <button>Enviar</button>
                     </article>
                     <article class="informacion">
-                        <p>Para nosotros es un placer convertirnos en su aliado y lograr juntos el crecimiento de su empresa. no dude en escribirnos o contactarnos por cualquiera de los siguientes medios, estaremos atentos para brindarle nuestra asesoría y resolver cualquier duda de los servicios a adquirir.</p>  
+                        <p>Para nosotros es un placer convertirnos en su aliado y lograr juntos el crecimiento de su empresa. no dude en escribirnos o contactarnos por cualquiera de los siguientes medios, estaremos atentos para brindarle nuestra asesoría y resolver cualquier duda de los servicios a adquirir.</p>
                         <ul>
                             <li><i class="bi bi-envelope-paper"></i>compras@sadidas.com</li>
                             <li><i class="bi bi-geo-alt-fill"></i>Carrera 70 A sur 20</li>
@@ -212,7 +216,7 @@
                             <li><i class="bi bi-file-richtext"></i>+57 - 320966901</li>
                         </ul>
                     </article>
-                </div>            
+                </div>
             </div>
         </section>
     </main>
@@ -222,4 +226,5 @@
         </div>
     </footer>
 </body>
+
 </html>
