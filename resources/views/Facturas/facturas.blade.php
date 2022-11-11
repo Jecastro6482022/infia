@@ -54,8 +54,8 @@
                 <th>Tipo de factura</th>
                 <th>Valor unitario</th>
                 <th>cantidad</th>
-                <th>iva</th>
                 <th>Sub total</th>
+                <th>iva</th>
                 <th>Total</th>
                 <th>Descripción</th>
                 <th>Codigo articulo</th>

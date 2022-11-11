@@ -26,13 +26,19 @@
     <div class="form_container">
         <h2 class="form_titulo">Registrar articulo</h2>
         <div class="from_group">
-            <input type="text" id="Tipo articulo" class="from_input" placeholder="Tipo articulo" name="tipo">
+            <input type="text" id="Tipo articulo" class="from_input" placeholder=" " name="tipo">
+            <label for="tipo" class="from_label" > Categoria Articulo</label>
+            <span class="from_line"></span>
         </div>
         <div class="from_group">
-            <input type="text" id="Nombre" class="from_input" placeholder="Nombre" name="nombre">
+            <input type="text" id="Nombre" class="from_input" placeholder=" " name="nombre">
+            <label for="tipo" class="from_label" > Nombre</label>
+            <span class="from_line"></span>
         </div>
         <div class="from_group">
             <input type="text" id="Material" class="from_input" placeholder="Material" name="material">
+            <label for="tipo" class="from_label" > Categoria Articulo</label>
+            <span class="from_line"></span>
         </div>
         <div class="from_group">
             <input type="text" id="Talla" class="from_input" placeholder="Talla" name="talla">

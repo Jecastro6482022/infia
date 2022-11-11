@@ -37,7 +37,7 @@ class facturas extends Controller
         ]);
 
         $subtotal = ($request->cantidad) * ($request->valor_unitario);
-        $iva = $subtotal * ($request->iva);
+        $iva = ($subtotal * ($request->iva))/100;
         $total = $subtotal + $iva;
 
         $facturas = new tbl_facturas();

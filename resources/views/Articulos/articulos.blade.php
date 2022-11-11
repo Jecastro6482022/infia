@@ -50,7 +50,7 @@
         <thead>
             <tr>
                 <th>Codigo articulo</th>
-                <th>Tipo articulo</th>
+                <th>Categoria Articulo</th>
                 <th>Nombre</th>
                 <th>Material</th>
                 <th>Talla</th>

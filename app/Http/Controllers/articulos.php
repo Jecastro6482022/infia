@@ -33,7 +33,6 @@ class articulos extends Controller
             'color' => 'required|min:4|max:10|alpha',
             'descripcion' => 'max:150|string'
         ]);
-
         $articulos = new tbl_articulos;
         $articulos->tipo_articulo = $request->tipo;
         $articulos->nom_articulo = $request->nombre;

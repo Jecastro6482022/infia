@@ -1,7 +1,7 @@
 /* formulario registro - editar */
 
 .registrar_usuario {
-    background-color: rgba(112, 102, 102, 0.692);
+    background-color:#ecf6f5;
     margin: auto;
     width: 100%;
     max-width: 600px;
@@ -13,7 +13,7 @@
 
 .from_group {
     display: flex;
-    justify-content: center;
+    position: relative;
 }
 
 .form_titulo {
@@ -92,5 +92,78 @@ form.registrar_usuario a {
 
     .registrar_usuario {
         margin-top: 12.5vh;
+    }
+}
+
+/* Label */
+
+.from_input{
+    width: 90%;
+    background: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid;
+}
+
+#form_rc:hover{
+    color: #000000;
+    font-weight: bold;
+}
+
+.from_input:not(:placeholder-shown){
+    color: rgb(44, 44, 44);
+}
+
+.from_input:focus + .from_label,
+.from_input:not(:placeholder-shown) + .from_label{
+    transform: rotateY(-12px) scale(.7);
+    transform-origin: left top;
+    font-weight: bold;
+}
+
+.from_label{
+    cursor: pointer;
+    position: absolute;
+    /* bottom: 2em; */
+    left: 2em;
+    transform: translateY(1em);
+    transition:transform .5s, color .3s;
+}
+
+.form_submit{
+    background-color: #278787;
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.from_line{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color:#000000;
+    transform:scale(0);
+    transform: left bottom;
+    transition:transform .4s;
+}
+
+.from_input:focus ~ .from_label,
+.from_input:not(:placeholder-shown) ~ .from_label{
+    transform: scale(1);
+}
+
+@media(max-width: 425px){
+    .form_titulo{
+        font-size: 1.8rem;
     }
 }
