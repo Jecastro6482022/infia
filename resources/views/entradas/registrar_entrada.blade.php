@@ -52,8 +52,10 @@
             </select>
         </div>
         <div class="from_group">
-            <input type="number"  class="from_input" placeholder="Cantidad" name="cantidad" 
+            <input type="number"  class="from_input" placeholder=" " name="cantidad" 
             required maxlength="10" minlength="10">
+            <label for="tipo" class="from_label" >Cantidad</label>
+            <span class="from_line"></span>
         </div>
         <div class="from_group">
             <select name="tipo" id="tipo">

@@ -33,22 +33,36 @@
     <div class="form_container">
         <h2 class="form_titulo">Editar empresa</h2>
         <div class="from_group">
-            <input type="text" name="nombre" class="from_input" value="{{$empresa->nom_empresa}}">
+            <input type="text" id="nit" class="from_input" placeholder=" " name="nit" 
+            required maxlength="10" value="{{$empresa->nit_empresa}}">
+            <label for="tipo" class="from_label" >Nit empresa</label>
+            <span class="from_line"></span>
         </div>
         <div class="from_group">
-            <input type="text" name="telefono" class="from_input" value="{{$empresa->tel_empresa}}">
+            <input type="text" name="nombre" class="from_input" placeholder=" " value="{{$empresa->nom_empresa}}">
+            <label for="tipo" class="from_label" >Razón social</label>
+            <span class="from_line"></span>
         </div>
         <div class="from_group">
-            <input type="text" name="direccion" class="from_input" value="{{$empresa->direccion_empresa}}">
+            <input type="text" name="telefono" class="from_input" placeholder=" " value="{{$empresa->tel_empresa}}">
+            <label for="tipo" class="from_label" >Teléfono</label>
+            <span class="from_line"></span>
         </div>
         <div class="from_group">
-            <input type="email" name="e_mail" class="from_input" value="{{$empresa->email_empresa}}">
+            <input type="text" name="direccion" class="from_input" placeholder=" " value="{{$empresa->direccion_empresa}}">
+            <label for="tipo" class="from_label" >Dirección</label>
+            <span class="from_line"></span>
+        </div>
+        <div class="from_group">
+            <input type="email" name="e_mail" class="from_input" placeholder=" " value="{{$empresa->email_empresa}}">
+            <label for="tipo" class="from_label" >E-mail</label>
+            <span class="from_line"></span>
         </div>
         <div class="from_group">
             <select name="id_user" class="from_group">
                 <option value="{{$empresa->id_usuer}}">{{$empresa->id_user}}</option>
                 @foreach ($usuarios_view as $user)
-                <option value="{{$user->id_user}}">{{$user->id_user }} - {{$user->nom_user}} - {{$user->apellidos_user}}</option>
+                <option value="{{$user->id_user}}">{{$user->id_user }} - {{$user->nom_user}} {{$user->apellidos_user}} - {{$user->nom_rol}}</option>
                 @endforeach
             </select>
         </div>

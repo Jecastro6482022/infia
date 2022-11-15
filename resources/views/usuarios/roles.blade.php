@@ -44,7 +44,9 @@
     <h2 class="form_titulo">Crear rol</h2>
     <div class="form_container">
         <div class="from_group">
-            <input type="text" id="nom_rol" class="from_input" placeholder="Nombre de rol" name="nombre" required >
+            <input type="text" id="nom_rol" class="from_input" placeholder=" " name="nombre" required >
+            <label for="tipo" class="from_label" >Nombre del rol</label>
+            <span class="from_line"></span>
         </div>
         <div class="from_group">
         <button class="form_submit" type='submit'> Crear </button>
