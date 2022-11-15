@@ -26,6 +26,10 @@
     <div class="form_container">
         <h2 class="form_titulo">Registrar empresa</h2>
         <div class="from_group">
+            <input type="text" id="nit" class="from_input" placeholder="nit" name="nit" 
+            required maxlength="10">
+        </div>
+        <div class="from_group">
             <input type="text" name="nombre" class="from_input" placeholder="Nombre" required>
         </div>
         <div class="from_group">
@@ -41,7 +45,7 @@
             <select name="id_user" class="from_group">
                 <option value=""><button href="{{route('reg_usuario')}}" ><a >Crear un Usuario</a></button></option>
                 @foreach ($usuarios_view as $user)
-                <option value="{{$user->id_user}}">{{$user->id_user }} - {{$user->nom_user}} - {{$user->apellidos_user}}</option>
+                <option value="{{$user->id_user}}">{{$user->id_user }} - {{$user->nom_user}} - {{$user->apellidos_user}}-{{$user->nom_rol}}</option>
                 @endforeach
             </select>
         </div>
@@ -52,6 +56,11 @@
 @if (session('guardado'))
 <script>
     guardado('Registro Exitoso', '<?php echo session('guardado') ?>');
+</script>
+@endif
+@if (session('error'))
+<script>
+    error('Advertencia', '<?php echo session('error') ?>');
 </script>
 @endif
 

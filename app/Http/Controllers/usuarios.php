@@ -93,7 +93,7 @@ class usuarios extends Controller
     {
 
         $usuarios = tbl_usuarios::join('tbl_roles as r', 'tbl_usuarios.cod_rol', '=', 'r.cod_rol')
-        ->select('tbl_usuarios.id_user', 'tbl_usuarios.nom_user', 'tbl_usuarios.apellidos_user','tbl_usuarios.telefono_user','tbl_usuarios.direccion_user','tbl_usuarios.email_user','r.nom_rol as nom_rol')
+        ->select('tbl_usuarios.id_user', 'tbl_usuarios.nom_user', 'tbl_usuarios.apellidos_user','tbl_usuarios.telefono_user','tbl_usuarios.direccion_user','tbl_usuarios.email_user','r.nom_rol')
         ->get();
         return view('usuarios.usuarios', compact('usuarios'));
     }

@@ -55,6 +55,8 @@
                 <th>Dirección</th>
                 <th>E-mail</th>
                 <th>Id User</th>
+                <th>Usuario</th>
+                <th>Rol</th>
                 <!-- <th>Ciudad</th> -->
                 <th></th>
                 <th></th>
@@ -80,6 +82,12 @@
                 </td>
                 <td data-label="Id User">
                     {{$empresa->id_user}}
+                </td>
+                <td data-label="Id User">
+                    {{$empresa->nom_user}}  {{$empresa->apellidos_user}}
+                </td>
+                <td data-label="Id User">
+                    {{$empresa->nom_rol}}
                 </td>
                 <td data-label="Editar"><a href="{{ route('edit_empresa', $empresa ) }}">Editar</a> </td>
                 <form action="{{route('delete_empresa',$empresa)}}" method="post" class="eliminar_datos">
