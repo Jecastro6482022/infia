@@ -14,14 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_inventarios', function (Blueprint $table) {
-            $table->Integer('Entradas');
-            $table->Integer('Salidas');
-            $table->float('Existencias');
-            $table->integer('cod_registro');
-            $table->foreign('cod_registro')->references('cod_registro')->on('tbl_registros');
+            $table->increments('id');
             $table->integer('cod_articulo');
-            $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos');
-            $table->timestamps();
+            $table->string('nom_articulo',100);
+            $table->float('existencias');
         });
     }
 
