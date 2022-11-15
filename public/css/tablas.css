@@ -5,6 +5,12 @@
     padding: 0;
     border: 0;
 }
+.svg {
+    width: 1.8rem;
+    height: 1.8rem;
+    color: white;
+    margin: auto;
+}
 
 tr td .a {
     vertical-align: top;

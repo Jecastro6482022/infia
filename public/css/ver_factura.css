@@ -1,6 +1,14 @@
 /*Tabla*/
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+a {
+    vertical-align: top;
+    color: white;
 }
 
 table {
@@ -11,6 +19,20 @@ table {
     width: 95%;
     margin-top: 3vh;
     table-layout: fixed;
+}
+.tabla {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.svg {
+    width: 1.8rem;
+    height: 1.8rem;
+    color: white;
+    margin: auto;
 }
 
 th,
@@ -40,9 +62,58 @@ td:hover {
     background: #2a50506c;
 }
 
+.alingdownload {
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.form {
+    display: flex;
+    min-width: 20%;
+    margin: 0%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.downloads {
+
+    display: inline-flex;
+    flex-flow: row wrap;
+    /* justify-content: space-evenly;s */
+    border-radius: .25rem;
+    width: 50%;
+}
+
+.btn_download {
+    background: gray;
+    padding: .5em;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    width: 25%;
+}
+
+.btn_download:hover {
+    background: #494949;
+}
+
+
 /*Tabla Responsive*/
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     table {
         border: 0px;
         margin-top: 10vh;

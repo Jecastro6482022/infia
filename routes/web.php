@@ -47,6 +47,8 @@ Route::get('factura.xlsx', function (UsersExport $usersExport) {
     return $usersExport->download('factura.xlsx');
 })->name('excel_factura');
 
+Route::get('/Facturas/ver/{factura}', facturas::class . '@printFactura')->name('print_factura');
+
 //vistas Empresas
 Route::view('/Empresas/registro', 'Empresas.registrar_empresa')->name('reg_empresa');
 Route::post('/Empresas/registro', empresas::class . '@store')->name('post_reg_empresa');

@@ -26,6 +26,12 @@ class facturas extends Controller
         $pdf = PDF::loadView('pdf.facturas', compact('facturas'))->setPaper('a4', 'landscape');
         return $pdf->stream('facturas.pdf');
     }
+    
+    public function printFactura(tbl_facturas $factura){
+        $facturas = tbl_empresas::all();
+        $pdf = PDF::loadView('pdf.facturas', compact('facturas'))->setPaper('a4', 'landscape');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -59,8 +65,13 @@ class facturas extends Controller
 
     public function index()
     {
-        $facturas_view = tbl_facturas::all();
-        return view('Facturas.facturas', compact('facturas_view'));
+        $facturas = tbl_facturas::join('tbl_articulos as art', 'tbl_facturas.cod_articulo', '=', 'art.cod_articulo')
+        ->join('tbl_usuarios as user', 'tbl_facturas.id_user', '=', 'user.id_user')
+        // ->join('tbl_empresas as emp', 'tbl_facturas.nit_empresa', '=', 'emp.nit_empresa')
+        ->select('tbl_facturas.*','art.nom_articulo','user.nom_user')
+        ->get();
+        // $facturas = tbl_facturas::join();
+        return view('Facturas.facturas', compact('facturas'));
     }
     public function index_reg()
     {
