@@ -15,28 +15,28 @@
 <table class="table table-bordered">
     <thead>
         <tr>
+            <th>Id</th>
             <th>Codigo articulo</th>
-            <th>Tipo articulo</th>
             <th>Descripcion articulo</th>
             <th>Stock</th>
 
         </tr>
     </thead>
     <tbody id="myTable">
-        @foreach ($cantidadEntradas as $inventario)
+        @foreach ($inventario as $inventario)
         <tr>
     
             <td data-label="codigo">
-                {{$inventario["codigo"]}}
+                {{$inventario->id}}
             </td>
             <td data-label="Nombre">
-                {{$inventario["tipoArticulo"]}}
+                {{$inventario->cod_articulo}}
             </td>
             <td data-label="Teléfono">
-                {{$inventario["descArticulo"]}}
+                {{$inventario->nom_articulo}}
             </td>
             <td data-label="Dirección">
-                {{$inventario["cantidad"]}}
+                {{$inventario->existencias}}
             </td>
         </tr>
 
