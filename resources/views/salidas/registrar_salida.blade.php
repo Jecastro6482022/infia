@@ -75,6 +75,11 @@
     guardado('Registro Exitoso', '<?php echo session('guardado') ?>');
 </script>
 @endif
+@if (session('error'))
+<script>
+    error('Advertencia', '<?php echo session('error') ?>');
+</script>
+@endif
 
 @if ($errors->any())
 @foreach ($errors->all() as $message)

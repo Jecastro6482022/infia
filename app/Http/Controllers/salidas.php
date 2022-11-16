@@ -8,6 +8,7 @@ use App\Models\tbl_facturas;
 use App\Models\tbl_registros;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PDO;
 
 class salidas extends Controller
@@ -41,8 +42,13 @@ class salidas extends Controller
         $salidas->cantidad = $request->cantidad;
         $salidas->causal = $request->causal;
         $salidas->num_factura = $request->num_factura;
-        $salidas->save();
-        return redirect()->route('post_reg_salida')->with('guardado', 'Tarea creada correctamente');
+        if ($a= $this->updateOrInsertInventory($request->cod_articulo,$request->cantidad)){
+            if ($salidas->save()) {
+                return redirect()->route('post_reg_salida')->with('guardado', 'Tarea creada correctamente'."cantidad entrada");
+            }
+        }else{  
+            return redirect()->route('post_reg_salida')->with('error', 'No se puede ingresar una salida mayor a la cantidad actual en inventario');
+        }       
     }
 
     public function index()
@@ -57,5 +63,29 @@ class salidas extends Controller
         $articulos_view = tbl_articulos::all();
         $facturas_view = tbl_facturas::all();
         return view('salidas.registrar_salida', compact('articulos_view', 'facturas_view'));
+    }
+    private function updateOrInsertInventory($id, $cantidadEntrada)
+    {   //Valida si ya existe un registro en inventario
+        $bool = DB::table('tbl_inventarios')
+            ->where('cod_articulo', $id)->exists();
+        //Si el articulo ya existe en el inventario lo actualiza
+        if ($bool):
+            //Selecciona la cantidad actual de un articulo 
+            $cantidadActual =  DB::table('tbl_inventarios')
+                ->select('existencias')
+                ->where('cod_articulo', '=', $id)->get();
+            //Resta la cantidad actual del inventario con la cantidad que se está registrando en la entrada
+            $total =round($cantidadActual[0]->existencias)-round($cantidadEntrada);
+            //Si la resta es mayor o igual a cero se actualiza, sino retorna false
+           if ($total >=0) {
+            DB::table('tbl_inventarios')->where('cod_articulo',$id)
+            ->update(['existencias'=>$total]);
+            return ["cantidad entrada"=>$cantidadEntrada,"Cantidad Actual"=>$cantidadActual[0]->existencias];
+           }else {
+            $total=0;
+            return false;
+           }
+           
+        endif;
     }
 }
