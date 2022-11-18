@@ -58,8 +58,8 @@
                 <th>Unidad de medida</th>
                 <th>Color</th>
                 <th>Descripcion</th>
-                <th></th>
-                <th></th>
+                <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody id="myTable">
@@ -92,13 +92,13 @@
                 <td data-label="Descripcion">
                     {{$articulo->descripcion_articulo}}
                 </td>
-                <td data-label="Editar"><a href="{{ route('edit_articulo', $articulo ) }}">Editar</a> </td>
+                <td data-label="Editar"><a href="{{ route('edit_articulo', $articulo ) }}"><i class="bi bi-pencil-square"></i></a> </td>
                 <form action="{{route('delete_articulo',$articulo)}}" method="post" class="eliminar_datos">
                     @csrf
                     @method('delete')
                     <td class="eliminartd" data-label="">
                         <button class="btn_eliminar" type="submit">
-                            Eliminar
+                        <i class="bi bi-archive-fill"></i>
                         </button>
                     </td>
                 </form>

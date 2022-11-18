@@ -61,8 +61,8 @@
                     <tr>
                         <th>Codigo</th>
                         <th>Nombre rol</th>
-                        <th></th>
-                        <th></th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
@@ -70,14 +70,14 @@
                     <tr>
                         <td data-label="Codigo" >{{$rol->cod_rol}}</td>
                         <td data-label="Nombre" >{{$rol->nom_rol}}</td>
-                        <td class="btn-editar"  data-modal-editar="{{$rol->cod_rol}}"data-label="Editar">Editar</a></td>
+                        <td class="btn-editar"  data-modal-editar="{{$rol->cod_rol}}"data-label="Editar"><i id="editar" class="bi bi-pencil-square"></i></a></td>
                         
                         <form action="{{route('delete_rol',$rol)}}" method="post" class="eliminar_datos">
                         @csrf
                         @method('delete')
                         <td class="eliminartd" data-label="">
                             <button class="btn_eliminar" type="submit">
-                                Eliminar
+                            <i class="bi bi-archive-fill"></i>
                             </button>
                         </td>
                         </form>

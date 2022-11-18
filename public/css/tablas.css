@@ -80,6 +80,13 @@ td:hover {
     background: #2a50506c;
 }
 
+button {
+    cursor: pointer;
+}
+
+#editar {
+    cursor: pointer;
+}
 /*Tabla Responsive*/
 
 @media (max-width: 1000px) {
