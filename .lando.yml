@@ -1,0 +1,4 @@
+name: adsi
+recipe: laravel
+config:
+  webroot: public

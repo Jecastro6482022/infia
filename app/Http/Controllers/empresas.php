@@ -64,8 +64,8 @@ class empresas extends Controller
     // Retorno de tablas y selact
     public function index()
     {
-        $empresas_view = tbl_empresas::join('tbl_usuarios as u', 'tbl_empresas.id_user', '=', 'u.id_user')
-            ->join('tbl_roles as r', 'u.cod_rol', '=', 'r.cod_rol')
+        $empresas_view = tbl_empresas::leftJoin('tbl_usuarios as u', 'tbl_empresas.id_user', '=', 'u.id_user')
+            ->leftJoin('tbl_roles as r', 'u.cod_rol', '=', 'r.cod_rol')
             ->select(
                 'tbl_empresas.nit_empresa',
                 'tbl_empresas.nom_empresa',
@@ -76,7 +76,7 @@ class empresas extends Controller
                 'u.nom_user',
                 'u.apellidos_user',
                 'r.nom_rol'
-            )
+            )->orderBy('nit_empresa','asc')
             ->get();
 
         return view('Empresas.empresas', compact('empresas_view'));

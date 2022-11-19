@@ -92,8 +92,8 @@ class usuarios extends Controller
     public function index()
     {
 
-        $usuarios = tbl_usuarios::join('tbl_roles as r', 'tbl_usuarios.cod_rol', '=', 'r.cod_rol')
-        ->select('tbl_usuarios.*','r.nom_rol')
+        $usuarios = tbl_usuarios::leftJoin('tbl_roles as r', 'tbl_usuarios.cod_rol', '=', 'r.cod_rol')
+        ->select('tbl_usuarios.*','r.nom_rol')->orderBy('id_user','asc')
         ->get();
         return view('usuarios.usuarios', compact('usuarios'));
     }
