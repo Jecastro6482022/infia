@@ -36,13 +36,15 @@ class salidas extends Controller
             'num_factura' => 'max:50',
         ]);
 
-        if ($request->causal == "Factura de venta - producto" && $request->num_factura == "Seleccione una factura" or is_null($request->num_factura)  ) {
-            return redirect()->route('post_reg_salida')->with('errado', 'Debe seleccionar un numero de factura');
+        if ($request->causal == "Factura de venta - producto" && $request->num_factura == "Seleccione una factura") {
+            return redirect()->route('post_reg_salida')->with('error', 'Debe seleccionar un numero de factura');
+        } elseif ($request->causal == "Factura de venta - producto" && is_null($request->num_factura)) {
+            return redirect()->route('post_reg_salida')->with('error', 'Debe seleccionar un numero de factura');
         }
 
         if ($request->num_factura == "Seleccione una factura") {
-            return redirect()->route('post_reg_salida')->with('errado', 'Dejo algún campo sin seleccionar');
-        } 
+            return redirect()->route('post_reg_salida')->with('error', 'Dejo algún campo sin seleccionar');
+        }
 
         $salidas = new tbl_registros();
         $salidas->cod_articulo = $request->cod_articulo;
@@ -52,7 +54,7 @@ class salidas extends Controller
         $salidas->num_factura = $request->num_factura;
         if ($a= $this->updateOrInsertInventory($request->cod_articulo,$request->cantidad)){
             if ($salidas->save()) {
-                return redirect()->route('post_reg_salida')->with('guardado', 'Tarea creada correctamente'."cantidad entrada");
+                return redirect()->route('post_reg_salida')->with('guardado', 'El registro de salida se realizo con exito');
             }
         }else{  
             return redirect()->route('post_reg_salida')->with('error', 'No se puede ingresar una salida mayor a la cantidad actual en inventario');

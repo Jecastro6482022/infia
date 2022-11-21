@@ -46,7 +46,7 @@ class entradas extends Controller
         }
 
         if ($request->num_factura == "Seleccione una factura") {
-            return redirect()->route('post_reg_entrada')->with('errado', 'Dejo algún campo sin seleccionar');
+            return redirect()->route('post_reg_entrada')->with('error', 'Dejo algún campo sin seleccionar');
         }
 
         $entradas = new tbl_registros();
@@ -57,7 +57,7 @@ class entradas extends Controller
         $entradas->num_factura = $request->num_factura;
         if ($entradas->save()) :
             $this->updateOrInsertInventory($request->cod_articulo, $request->cantidad);
-            return redirect()->route('post_reg_entrada')->with('guardado', 'El registro de salida se realizo con exito');
+            return redirect()->route('post_reg_entrada')->with('guardado', 'El registro de entrada se realizo con exito');
         endif;
     }
 

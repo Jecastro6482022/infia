@@ -75,9 +75,9 @@
 </script>
 @endif
 
-@if (session('errado'))
+@if (session('error'))
 <script>
-    error('Dato Errado', '<?php echo session('errado') ?>');
+    error('Dato Errado', '<?php echo session('error') ?>');
 </script>
 @endif
 
