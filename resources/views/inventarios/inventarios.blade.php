@@ -15,8 +15,8 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Codigo articulo</th>
+            <th>Categoria articulo</th>
             <th>Descripcion articulo</th>
             <th>Stock</th>
 
@@ -26,16 +26,16 @@
         @foreach ($inventario as $inventario)
         <tr>
     
-            <td data-label="codigo">
-                {{$inventario->id}}
-            </td>
-            <td data-label="Nombre">
+            <td data-label="codA">
                 {{$inventario->cod_articulo}}
             </td>
-            <td data-label="Teléfono">
-                {{$inventario->nom_articulo}}
+            <td data-label="tipo">
+                {{$inventario->tipo_articulo}}
             </td>
-            <td data-label="Dirección">
+            <td data-label="descripcionA">
+                {{$inventario->descripcion_articulo}}
+            </td>
+            <td data-label="existencias">
                 {{$inventario->existencias}}
             </td>
         </tr>

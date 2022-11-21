@@ -39,14 +39,14 @@
                 <option selected>Causal salida</option>
                 <option value="Factura de venta - producto">Factura de venta - producto</option>
                 <option value="No conforme - producto">No conforme - producto</option>
-                <option value="Confección (Satelite) - materia prima">Confección (Satelite) - materia prima</option>
+                <option value="Confección Satelite - materia prima">Confección Satelite - materia prima</option>
                 <option value="Baja - materia prima">Baja - materia prima</option>
                 <option value="Baja - insumo">Baja - insumo</option>
             </select>                  
         </div>
         <div class="from_group">
             <select name="num_factura" class="from_group">
-                <option selected><button href="{{route('reg_factura')}}" ><a >Seleccione una factura</a></button></option>
+                <option selected>Seleccione una factura</option>
                 <option value="">No aplica</option>
                 @foreach ($facturas_view as $factura)
                 <option value="{{$factura->num_factura}}">{{$factura->num_factura}} - {{$factura->tipo_factura}} </option>
@@ -58,12 +58,6 @@
             required maxlength="10" minlength="10">
             <label for="tipo" class="from_label" >Cantidad</label>
             <span class="from_line"></span>
-        </div>
-        <div class="from_group">
-            <select name="tipo" id="tipo">
-                <option select="">Seleccione tipo registro</option>
-                <option value="salida">Salida</option>
-            </select>                  
         </div>
         <input type="submit" value="Registrar" class="form_submit" class="gap" name="Registrar">
         <input type="reset" value="Limpiar" class="form_submit" class="gap" name="Limpiar">
@@ -78,6 +72,12 @@
 @if (session('error'))
 <script>
     error('Advertencia', '<?php echo session('error') ?>');
+</script>
+@endif
+
+@if (session('errado'))
+<script>
+    error('Dato Errado', '<?php echo session('errado') ?>');
 </script>
 @endif
 

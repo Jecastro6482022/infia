@@ -30,11 +30,19 @@ class salidas extends Controller
         /* El validate funciona, pero los datos que se estan enviando no cumplen    */
         $request->validate([
             'cod_articulo' => 'required|max:10',
-            'tipo' => 'required|max:30',
+            'tipo' => 'max:30',
             'cantidad' => 'required|max:20',
-            'causal' => 'required|max:100',
+            'causal' => 'required|max:50',
             'num_factura' => 'max:50',
         ]);
+
+        if ($request->causal == "Factura de venta - producto" && $request->num_factura == "Seleccione una factura" or is_null($request->num_factura)  ) {
+            return redirect()->route('post_reg_salida')->with('errado', 'Debe seleccionar un numero de factura');
+        }
+
+        if ($request->num_factura == "Seleccione una factura") {
+            return redirect()->route('post_reg_salida')->with('errado', 'Dejo algún campo sin seleccionar');
+        } 
 
         $salidas = new tbl_registros();
         $salidas->cod_articulo = $request->cod_articulo;
@@ -53,8 +61,9 @@ class salidas extends Controller
 
     public function index()
     {
-
-        $salidas = tbl_registros::all()->where('tipo','=','Salida');
+        $salidas = tbl_registros::leftJoin('tbl_articulos as a','tbl_registros.cod_articulo','=','a.cod_articulo')
+        ->select('tbl_registros.*','descripcion_articulo')
+        ->where('tipo','=','Salida')->get();
         return view('salidas.salidas', compact('salidas'));
     }
 

@@ -38,6 +38,7 @@ class entradas extends Controller
             'num_factura' => 'max:50',
         ]); 
 
+
         if ($request->causal == "Factura de compra - Materia prima o insumos" && $request->num_factura == "Seleccione una factura" or is_null($request->num_factura)  ) {
             return redirect()->route('post_reg_entrada')->with('errado', 'Debe seleccionar un numero de factura');
         }
@@ -94,11 +95,11 @@ class entradas extends Controller
             ->update(['existencias'=>$total]);
         //si no existe el registro del articulo en el inventario lo crea     
         else:
-            $nomnbreArticulo =tbl_articulos::select('nom_articulo')
+            $nomnbreArticulo =tbl_articulos::select('descripcion_articulo')
                 ->where('cod_articulo', '=', $id)->get();
             DB::table('tbl_inventarios')->upsert(
                 [
-                    ['cod_articulo' => $id,'nom_articulo'=>$nomnbreArticulo[0]->nom_articulo, 'existencias' => $cantidadEntrada],
+                    ['cod_articulo' => $id,'descripcion_articulo'=>$nomnbreArticulo[0]->descripcion_articulo, 'existencias' => $cantidadEntrada],
                 ],
                 ['cod_articulo'],
                 ['existencias']

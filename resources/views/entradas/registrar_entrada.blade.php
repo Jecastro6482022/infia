@@ -39,7 +39,7 @@
                 <option selected>Causal entrada</option>
                 <option value="Factura de compra - Materia prima o insumos">Factura de compra - Materia prima o insumos</option>
                 <option value="Devolucion - producto">Devolucion - producto</option>
-                <option value="Confección (Satelite) - producto">Confección (Satelite) - producto</option>
+                <option value="Confección Satelite - producto">Confección Satelite - producto</option>
             </select>                  
         </div>
         <div class="from_group">
