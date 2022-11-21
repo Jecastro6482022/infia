@@ -51,7 +51,7 @@ Route::get('/Facturas/ver/{factura}', facturas::class . '@printFactura')->name('
 
 //vistas Empresas
  
-Route::get('/', function () {
+Route::get('/Empresas', function () {
     return view('empresas');
 });
 Route::resource('Empresas', empresas::class);
