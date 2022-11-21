@@ -32,16 +32,25 @@ class entradas extends Controller
         /* El validate funciona, pero los datos que se estan enviando no cumplen    */
         $request->validate([
             'cod_articulo' => 'required|max:10',
-            'tipo' => 'required|max:30',
+            'tipo' => 'max:30',
             'cantidad' => 'required|max:20',
-
-
+            'causal' => 'required|max:50',
             'num_factura' => 'max:50',
-        ]);
+        ]); 
+
+        if ($request->causal == "Factura de compra - Materia prima o insumos" && $request->num_factura == "Seleccione una factura" or is_null($request->num_factura)  ) {
+            return redirect()->route('post_reg_entrada')->with('errado', 'Debe seleccionar un numero de factura');
+        }
+
+        if ($request->num_factura == "Seleccione una factura") {
+            return redirect()->route('post_reg_entrada')->with('errado', 'Dejo algún campo sin seleccionar');
+        } 
+
+
 
         $entradas = new tbl_registros();
         $entradas->cod_articulo = $request->cod_articulo;
-        $entradas->tipo = "entrada";
+        $entradas->tipo = "Entrada";
         $entradas->cantidad = $request->cantidad;
         $entradas->causal = $request->causal;
         $entradas->num_factura = $request->num_factura;
@@ -55,7 +64,9 @@ class entradas extends Controller
     public function index()
     {
 
-        $entradas = tbl_registros::all();
+        $entradas = tbl_registros::leftJoin('tbl_articulos as a','tbl_registros.cod_articulo','=','a.cod_articulo')
+        ->select('tbl_registros.*','descripcion_articulo')
+        ->where('tipo','=','Entrada')->get();
         return view('entradas.entradas', compact('entradas'));
     }
 

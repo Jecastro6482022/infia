@@ -44,7 +44,7 @@
         </div>
         <div class="from_group">
             <select name="num_factura" class="from_group">
-                <option selected><button href="{{route('reg_factura')}}" ><a >Seleccione una factura</a></button></option>
+                <option selected>Seleccione una factura</option>
                 <option value="">No aplica</option>
                 @foreach ($facturas_view as $factura)
                 <option value="{{$factura->num_factura}}">{{$factura->num_factura}} - {{$factura->tipo_factura}} </option>
@@ -57,13 +57,6 @@
             <label for="tipo" class="from_label" >Cantidad</label>
             <span class="from_line"></span>
         </div>
-        <div class="from_group">
-            <select name="tipo" id="tipo">
-                <option select="">Seleccione tipo registro</option>
-                <option value="entrada">Entrada</option>
-            </select>                  
-        </div>
-        
         <input type="submit" value="Registrar" class="form_submit" class="gap" name="Registrar">
         <input type="reset" value="Limpiar" class="form_submit" class="gap" name="Limpiar">
 
@@ -72,6 +65,12 @@
 @if (session('guardado'))
 <script>
     guardado('Registro Exitoso', '<?php echo session('guardado') ?>');
+</script>
+@endif
+
+@if (session('errado'))
+<script>
+    error('Dato Errado', '<?php echo session('errado') ?>');
 </script>
 @endif
 

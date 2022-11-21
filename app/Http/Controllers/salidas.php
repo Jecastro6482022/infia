@@ -54,7 +54,7 @@ class salidas extends Controller
     public function index()
     {
 
-        $salidas = tbl_registros::all();
+        $salidas = tbl_registros::all()->where('tipo','=','Salida');
         return view('salidas.salidas', compact('salidas'));
     }
 
