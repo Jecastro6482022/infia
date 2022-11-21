@@ -16,6 +16,7 @@ class tbl_usuarioseedr extends Seeder
     public function run()
     {
         DB::table('tbl_usuarios')->insert([
+            'cedula'=>'123456789',
             'email_user'=>'camilo1003diaz@gmail.com',
             'contraseña_user'=>'camilo',
             'nom_user'=>'Juan Camilo',
@@ -27,6 +28,7 @@ class tbl_usuarioseedr extends Seeder
         ]);
 
         DB::table('tbl_usuarios')->insert([
+            'cedula'=>'987456321',
             'email_user'=>'jecatro648@misena.edu.co',
             'contraseña_user'=>'estebanquito',
             'nom_user'=>'Jeison Esteban',
@@ -38,6 +40,7 @@ class tbl_usuarioseedr extends Seeder
         ]);
 
         DB::table('tbl_usuarios')->insert([
+            'cedula'=>'654789321',
             'email_user'=>'yury.gutierrez1@misena.edu.co',
             'contraseña_user'=>'yuri',
             'nom_user'=>'Yury Natalia',
@@ -49,6 +52,7 @@ class tbl_usuarioseedr extends Seeder
         ]);
 
         DB::table('tbl_usuarios')->insert([
+            'cedula'=>'321456789',
             'email_user'=>'suescunandres23@gmail.com',
             'contraseña_user'=>'andres',
             'nom_user'=>'Jualian Andres',
@@ -60,6 +64,7 @@ class tbl_usuarioseedr extends Seeder
         ]);
 
         DB::table('tbl_usuarios')->insert([
+            'cedula'=>'789456123',
             'email_user'=>'waramos176@misena.edu.co',
             'contraseña_user'=>'william',
             'nom_user'=>'William Andres',

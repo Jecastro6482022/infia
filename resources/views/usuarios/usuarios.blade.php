@@ -51,7 +51,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Cédula</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Teléfono</th>
@@ -65,7 +65,7 @@
         <tbody id="myTable">
             @foreach ($usuarios as $usuario)
             <tr>
-                <td data-label="Id">{{$usuario->id_user}}</td>
+                <td data-label="Cedula">{{$usuario->cedula}}</td>
                 <td data-label="Nombre">{{$usuario->nom_user}}</td>
                 <td data-label="Apellido">{{$usuario->apellidos_user}}</td>
                 <td data-label="Telefono">{{$usuario->telefono_user}}</td>
@@ -121,6 +121,11 @@
 @if (session('actualizado'))
 <script>
     guardado('Actualizacion Exitosa', '<?php echo session('actualizado') ?>');
+</script>
+@endif
+@if (session('error'))
+<script>
+    error('Error', '<?php echo session('error') ?>');
 </script>
 @endif
 

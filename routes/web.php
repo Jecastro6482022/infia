@@ -50,14 +50,11 @@ Route::get('factura.xlsx', function (UsersExport $usersExport) {
 Route::get('/Facturas/ver/{factura}', facturas::class . '@printFactura')->name('print_factura');
 
 //vistas Empresas
-Route::view('/Empresas/registro', 'Empresas.registrar_empresa')->name('reg_empresa');
-Route::post('/Empresas/registro', empresas::class . '@store')->name('post_reg_empresa');
-Route::get('/Empresas/ver', empresas::class . '@index')->name('ver_empresa');
-Route::get('/Empresas/registro', empresas::class . '@index2')->name('reg_empresa');
-Route::get('/Empresas/editar/{empresa}', empresas::class . '@edit')->name('edit_empresa');
-Route::patch('/Empresas/{empresa}', empresas::class . '@update')->name('update_empresa');
-Route::delete('/Empresas/{empresa}', empresas::class . '@destroy')->name('delete_empresa');
-
+ 
+Route::get('/', function () {
+    return view('empresas');
+});
+Route::resource('Empresas', empresas::class);
 Route::get('empresas.pdf', [empresas::class, 'exportPdf'])->name('pdf_empresa');
 Route::get('empresas.print', [empresas::class, 'printPdf'])->name('print_empresa');
 Route::get('empresa.csv', function (UsersExport $usersExport) {

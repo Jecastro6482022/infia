@@ -40,7 +40,7 @@
     <h2 class="form_titulo">Registrar Usuarios</h2>
     <div class="form_container">
         <div class="from_group">
-            <input type="text" id="ID" class="from_input" placeholder=" " name="id" required maxlength="10">
+            <input type="number" id="cedula" class="from_input" placeholder=" " name="cedula" required maxlength="10">
             <label for="tipo" class="from_label" >ID</label>
             <span class="from_line"></span>
         </div>

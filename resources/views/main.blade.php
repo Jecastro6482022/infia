@@ -19,7 +19,7 @@
                 <h2 class="titulo_usuarios">Usuarios</h2>
             </div>
             <div class="usuarios">
-                <a href="{{ route('ver_empresa')}}"><img src="img/icons8-cliente-de-empresa-60.png" alt=""></a>
+                <a href="{{ route('Empresas.index')}}"><img src="img/icons8-cliente-de-empresa-60.png" alt=""></a>
                 <h2 class="titulo_usuarios">Empresas</h2>
             </div>
             <div class="usuarios">

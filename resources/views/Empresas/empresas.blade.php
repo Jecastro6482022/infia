@@ -7,7 +7,7 @@
 
 <!--link nav -->
 @section('link')
-{{ route('reg_empresa')}}
+{{ route('Empresas.create')}}
 @stop
 
 <!-- palabra nav -->
@@ -89,10 +89,10 @@
                 <td data-label="Id User">
                     {{$empresa->nom_rol}}
                 </td>
-                <td data-label="Editar"><a href="{{ route('edit_empresa', $empresa ) }}"><i class="bi bi-pencil-square"></i></a> </td>
-                <form action="{{route('delete_empresa',$empresa)}}" method="post" class="eliminar_datos">
+                <td data-label="Editar"><a href="{{ route('Empresas.edit', $empresa->id) }}"><i class="bi bi-pencil-square"></i></a> </td>
+                <form action="{{route('Empresas.destroy',$empresa->nit_empresa)}}" method="POST" class="eliminar_datos">
                     @csrf
-                    @method('delete')
+                    @method('DELETE')
                     <td class="eliminartd" data-label="">
                         <button class="btn_eliminar" type="submit">
                         <i class="bi bi-archive-fill"></i>
@@ -121,6 +121,13 @@
     guardado('Actualizacion Exitosa', '<?php echo session('actualizado') ?>');
 </script>
 @endif
+
+@if (session('error'))
+<script>
+    error('Advertencia', '<?php echo session('error') ?>');
+</script>
+@endif
+
 
 @section('script')
 {{ asset('js/eliminar.js')}}

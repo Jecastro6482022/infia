@@ -7,7 +7,7 @@
 
 <!--link nav -->
 @section('link')
-{{ route('ver_empresa')}}
+{{ route('Empresas.index')}}
 @stop
 <!-- palabra nav -->
 @section('palabra-accion')
@@ -15,7 +15,7 @@
 @stop
 <!--link nav2 -->
 @section('link2')
-{{ route('reg_empresa')}}
+{{ route('Empresas.store')}}
 @stop
 <!-- palabra nav2 -->
 @section('palabra-accion2')
@@ -27,11 +27,17 @@
 @stop
 
 @section('seccion')
-<form class="registrar_usuario" action="{{route('update_empresa',$empresa)}}" method="POST">
-    @csrf
-    @method('PATCH')
+<form class="registrar_usuario" action="{{route('Empresas.update',$empresa->id)}}" method="post">
+    @method('PATCH') 
+            @csrf
     <div class="form_container">
         <h2 class="form_titulo">Editar empresa</h2>
+        <div class="from_group" style="display:none">
+            <input type="text" id="id" class="from_input" placeholder=" " name="id" 
+            required maxlength="10" value="{{$empresa->id}}">
+            <label for="tipo" class="from_label" >Id</label>
+            <span class="from_line"></span>
+        </div>
         <div class="from_group">
             <input type="text" id="nit" class="from_input" placeholder=" " name="nit" 
             required maxlength="10" value="{{$empresa->nit_empresa}}">
@@ -75,6 +81,7 @@
     guardado('Actualizacion Exitosa', '<?php echo session('actualizado') ?>');
 </script>
 @endif
+
 
 @if ($errors->any())
 @foreach ($errors->all() as $message)

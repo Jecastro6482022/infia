@@ -16,6 +16,7 @@ class tbl_empresaseedr extends Seeder
     public function run()
     {
         DB::table('tbl_empresas')->insert([
+            'nit_empresa'=>'12345',
             'nom_empresa'=>'cortes pepito',
             'tel_empresa'=>'3126184366',
             'direccion_empresa'=>'cll 25# 14-32',
@@ -24,6 +25,7 @@ class tbl_empresaseedr extends Seeder
         ]);
 
         DB::table('tbl_empresas')->insert([
+            'nit_empresa'=>'45123',
             'nom_empresa'=>'comfex ltda',
             'tel_empresa'=>'3142659879',
             'direccion_empresa'=>'cll 185# 22-12',
@@ -32,6 +34,7 @@ class tbl_empresaseedr extends Seeder
         ]);
 
         DB::table('tbl_empresas')->insert([
+            'nit_empresa'=>'31245',
             'nom_empresa'=>'facol',
             'tel_empresa'=>'5185555698',
             'direccion_empresa'=>'cra 68# 54-33',
@@ -40,6 +43,7 @@ class tbl_empresaseedr extends Seeder
         ]);
 
         DB::table('tbl_empresas')->insert([
+            'nit_empresa'=>'21345',
             'nom_empresa'=>'el telar',
             'tel_empresa'=>'3114455661',
             'direccion_empresa'=>'cra 15# 34-11',
@@ -48,6 +52,7 @@ class tbl_empresaseedr extends Seeder
         ]);
 
         DB::table('tbl_empresas')->insert([
+            'nit_empresa'=>'54321',
             'nom_empresa'=>'hilosyagujas',
             'tel_empresa'=>'3154685791',
             'direccion_empresa'=>'cll 155# 88-55',

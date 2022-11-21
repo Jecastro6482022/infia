@@ -76,7 +76,7 @@ class usuarios extends Controller
             ]);
 
             $usuarios = new tbl_usuarios();
-            $usuarios->id_user = $request->id;
+            $usuarios->cedula = $request->cedula;
             $usuarios->email_user = $request->email;
             $usuarios->contraseña_user = $request->contraseña;
             $usuarios->nom_user = $request->nombres;
@@ -93,8 +93,8 @@ class usuarios extends Controller
     {
 
         $usuarios = tbl_usuarios::leftJoin('tbl_roles as r', 'tbl_usuarios.cod_rol', '=', 'r.cod_rol')
-        ->select('tbl_usuarios.*','r.nom_rol')->orderBy('id_user','asc')
-        ->get();
+            ->select('tbl_usuarios.*', 'r.nom_rol')->orderBy('id_user', 'asc')
+            ->get();
         return view('usuarios.usuarios', compact('usuarios'));
     }
     public function index2()
@@ -116,8 +116,41 @@ class usuarios extends Controller
 
     public function update(Request $request, tbl_usuarios $usuario)
     {
+
+        $user = $usuario::select('cedula', 'email_user')
+            ->where('id_user', '!=', $request->id_user)
+            ->get();
+        // 987456321 jecatro648@misena.edu.co
+
+        for ($i = 0; $i < count(array($user)); $i++) {
+            if ($request->cedula == $user[$i]->cedula || $request->email == $user[$i]->email_user) {
+                $info =  'La cedúla y el email ya estan en uso.';
+                if ($request->cedula == $user[$i]->cedula && $request->email == $user[$i]->email_user) {
+                    $info =  'La cedúla y el email ya estan en uso.';
+                    return redirect()->route('ver_usuario')->with('error', $info);
+                    break;
+                    die();
+                }
+                if ($request->cedula == $user[$i]->cedula) {
+                    $info = 'La cédula ' . $request->cedula . ' ya está en uso.';
+                    return redirect()->route('ver_usuario')->with('error', $info);
+                    break;
+                    die();
+                }
+                if ($request->email == $user[$i]->email_user) {
+                    $info = 'El email ' . $request->email . 'ya está en uso.';
+                    return redirect()->route('ver_usuario')->with('error', $info);
+                    break;
+                    die();
+                }
+                return redirect()->route('ver_usuario')->with('error', $info);
+                break;
+                die();
+            }
+        }
+
         $request->validate([
-            'id' => 'required|max:10',
+            'cedula' => 'required|max:10',
             'email' => 'required|max:30|email',
             'contraseña' => 'required|max:20',
             'nombres' => 'required|max:50',
@@ -129,7 +162,7 @@ class usuarios extends Controller
         ]);
 
 
-        $usuario->id_user = $request->id;
+        $usuario->cedula = $request->cedula;
         $usuario->email_user = $request->email;
         $usuario->contraseña_user = $request->contraseña;
         $usuario->nom_user = $request->nombres;
@@ -140,7 +173,7 @@ class usuarios extends Controller
         $usuario->cod_rol = $request->rol;
         $usuario->save();
         session()->flash('actualizado', 'El usuario a sido editado con exito');
-        return redirect()->route('ver_usuario')->with('actualizado', 'El usuario a sido editado con exito');
+        return redirect()->route('ver_usuario')->with('actualizado', $user[0]->cedula);
         return view('usuarios.editar_usuario', compact('usuario'));
     }
 

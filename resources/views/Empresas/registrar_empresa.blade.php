@@ -7,7 +7,7 @@
 
 <!--link nav -->
 @section('link')
-{{ route('ver_empresa')}}
+{{ route('Empresas.index')}}
 @stop
 
 <!-- palabra nav -->
@@ -21,7 +21,7 @@
 @stop
 
 @section('seccion')
-<form class="registrar_usuario" action="{{route('post_reg_empresa')}}" method="POST" enctype="multipart/form-data">
+<form class="registrar_usuario" action="{{route('Empresas.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form_container">
         <h2 class="form_titulo">Registrar empresa</h2>

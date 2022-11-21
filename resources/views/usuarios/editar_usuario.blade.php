@@ -37,9 +37,13 @@
         @method('PATCH')
         <h2 class="form_titulo">Editar usuario</h2>
         <div class="form_container">
-            <div class="from_group">
-                <input type="text" id="ID" class="from_input" placeholder=" " name="id" required maxlength="10" value="{{$usuario->id_user}}">
+            <div class="from_group"  style="display:none">
+                <input type="text" id="ID" class="from_input" placeholder=" " name="id_user" readonly maxlength="10" value="{{$usuario->id_user}}">
                 <label for="tipo" class="from_label" >ID</label>
+            </div>
+            <div class="from_group">
+                <input type="text" id="cedula" class="from_input" placeholder=" " name="cedula" required  pattern="^[0-9]+" maxlength="10" value="{{$usuario->cedula}}">
+                <label for="tipo" class="from_label" >Cédula</label>
             </div>
             <div class="from_group">
                 <input type="text" id="nombre" class="from_input" placeholder=" " name="nombres" required pattern="^[A-Za-z ]+" maxlength="25" value="{{$usuario->nom_user}}">
@@ -82,6 +86,11 @@
     @if (session('actualizado'))
     <script>
         guardado('Actualizacion Exitosa', '<?php echo session('actualizado') ?>');
+    </script>
+    @endif
+    @if (session('error'))
+    <script>
+        error('Error', '<?php echo session('error') ?>');
     </script>
     @endif
 
