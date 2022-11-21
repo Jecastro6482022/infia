@@ -90,7 +90,7 @@
                     {{$empresa->nom_rol}}
                 </td>
                 <td data-label="Editar"><a href="{{ route('Empresas.edit', $empresa->id) }}"><i class="bi bi-pencil-square"></i></a> </td>
-                <form action="{{route('Empresas.destroy',$empresa->nit_empresa)}}" method="POST" class="eliminar_datos">
+                <form action="{{route('Empresas.destroy',$empresa->id)}}" method="POST" class="eliminar_datos">
                     @csrf
                     @method('DELETE')
                     <td class="eliminartd" data-label="">

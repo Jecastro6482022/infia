@@ -172,8 +172,8 @@ class empresas extends Controller
 }
     public function destroy($id)
     {
-        $stock = tbl_empresas::find($id);
-        $stock->delete(); // Easy right?
+        $empresa = tbl_empresas::find($id);
+        $empresa->delete(); // Easy right?
 
         return redirect('Empresas')->with('destroy', 'Eliminado con exito');  // -> resources/views/stocks/index.blade.php
     }
