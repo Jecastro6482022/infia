@@ -20,9 +20,9 @@ class usuarios extends Controller
             'contraseña_user' => 'required|string'
         ]);
         if (Auth::attempt($credentials) == ($usuarios)) {
-            return view('main');
+            return route('main');
         }
-        return view('login');
+        return route('login');
     }
 
     public function exportPdf()

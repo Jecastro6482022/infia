@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('id_user', 10);
             $table->integer('cedula')->unique();
             $table->String('email_user', 50)->unique();
-            $table->String('contraseña_user', 20);
             $table->String('nom_user', 20);
             $table->String('apellidos_user', 20);
             $table->date('fecha_ingreso', 20);
@@ -26,6 +25,8 @@ return new class extends Migration
             $table->String('direccion_user', 30);
             $table->integer('cod_rol')->nullable();
             $table->foreign('cod_rol')->references('cod_rol')->on('tbl_roles')->onDelete('set null');
+            $table->String('contraseña_user', 20);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

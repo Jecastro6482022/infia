@@ -119,6 +119,12 @@
                     <span>%</span>
                 </div>
             </div>
+            <div class="cajas">
+                <h3>Agregar</h3>
+                <div class="tbl_abajo">
+                    <i class="bi bi-plus-circle-fill"></i>
+                </div>
+            </div>
         </section>
 
         <section class="seccion_cuatro">

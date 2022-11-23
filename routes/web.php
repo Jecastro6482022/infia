@@ -27,6 +27,7 @@ use App\Http\Controllers\inventario;
 
 Route::view('/', 'home')->name('home');
 Route::view('/Login', 'login')->name('login');
+Route::post('/Login', [usuarios::class, 'login'])->name('login');
 Route::view('/Main', 'main')->name('main');
 
 // Route::view('/', 'main')->name('main');
@@ -46,8 +47,6 @@ Route::get('factura.csv', function (UsersExport $usersExport) {
 Route::get('factura.xlsx', function (UsersExport $usersExport) {
     return $usersExport->download('factura.xlsx');
 })->name('excel_factura');
-
-Route::get('/Facturas/ver/{factura}', facturas::class . '@printFactura')->name('print_factura');
 
 //vistas Empresas
  
@@ -144,7 +143,7 @@ Route::get('entradas.xlsx', function (UsersExport $usersExport) {
 //vistas Inventarios
 Route::view('/Inventarios/Ver', 'inventarios.inventarios')->name('ver_inventario');
 
-Route::post('/Login', [usuarios::class, 'login'])->name('login');
+
 Route::get('/Inventarios/Ver', [inventario::class, 'index'])->name('ver_inventario');
 
 //vistas Reportes
