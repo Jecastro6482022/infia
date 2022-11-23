@@ -19,13 +19,16 @@ return new class extends Migration
             $table->Integer('cantidad');
             $table->String('causal', 100);
             $table->integer('num_factura')->nullable();
-            $table->foreign('num_factura')->references('num_factura')->on('tbl_facturas')->nullable();
             $table->integer('cod_articulo')->nullable();
-            $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos')->onDelete('set null');
             $table->timestamps();
         });
-    }
+        Schema::table('tbl_registros', function (Blueprint $table) {
+            $table->foreign('num_factura')->references('id')->on('tbl_facturas')->onDelete('cascade');
+            $table->foreign('cod_articulo')->references('cod_articulo')->on('tbl_articulos')->onDelete('set null');
 
+        });
+    }
+    
     /**
      * Reverse the migrations.
      *

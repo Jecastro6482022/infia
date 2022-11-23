@@ -108,7 +108,11 @@ class empresas extends Controller
 
     public function edit($empresa)
     {
-        $usuarios_view = tbl_usuarios::all();
+        $usuarios_view = tbl_usuarios::join('tbl_roles as r', 'tbl_usuarios.cod_rol', '=', 'r.cod_rol')
+            ->select('tbl_usuarios.id_user', 'tbl_usuarios.nom_user', 'tbl_usuarios.apellidos_user', 'r.nom_rol')
+            ->where('r.nom_rol', '=', 'Cliente')
+            ->orWhere('r.nom_rol', '=', 'Proveedor')
+            ->get();
         $empresa = tbl_empresas::find($empresa);
         return view('Empresas.editar_empresa', compact('empresa', 'usuarios_view'));
     }
