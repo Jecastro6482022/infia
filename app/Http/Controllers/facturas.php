@@ -27,7 +27,7 @@ class facturas extends Controller
         return $pdf->stream('facturas.pdf');
     }
     
-    public function printFactura(tbl_facturas $factura){
+    public function printFactura(){
         $facturas = tbl_empresas::all();
         $pdf = PDF::loadView('pdf.facturas', compact('facturas'))->setPaper('a4', 'landscape');
     }
