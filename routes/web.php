@@ -148,3 +148,8 @@ Route::get('/Inventarios/Ver', [inventario::class, 'index'])->name('ver_inventar
 
 //vistas Reportes
 Route::view('/Reportes/Ver', 'reportes.reportes')->name('ver_reportes');
+
+Route::view('/Reportes/Ver/UsuariosPDF', 'usuarios.pdf')->name('pdf_usuarios');
+Route::view('/Reportes/Ver/EmpresasPDF', 'empresas.pdf')->name('pdf_empresas');
+Route::view('/Reportes/Ver/EstockPDF', 'inventarios.pdf')->name('pdf_stock');
+

@@ -15,7 +15,7 @@
 @csrf
     <h2 class="form_titulo">Reportes</h2>
 
-    <button name="registrar" type="submit" class="form_submit"><img class="img" src="{{asset('img/icons8-persona-de-sexo-masculino-64.png')}}" alt="usuarios"><strong> Usuarios</strong></button>
+    <a class="form_submit" href="{{route('pdf_usuarios')}}"><img class="img" src="{{asset('img/icons8-persona-de-sexo-masculino-64.png')}}" alt="usuarios"><strong> Usuarios</strong></a>
     <button name="registrar" type="submit" class="form_submit"><img class="img" src="{{asset('img/icons8-cliente-de-empresa-60.png')}}" alt="empresas"><strong>  Empresas</strong></button>
     <button name="registrar" type="submit" class="form_submit"><img class="img" src="{{asset('img/icons8-invoices-60.png')}}" alt="facturas"><strong>  Facturas</strong></button>
     <button name="registrar" type="submit" class="form_submit"><img class="img" src="{{asset('img/icons8-suéter.png')}}" alt="articulos"><strong>  Artículos</strong></button>
