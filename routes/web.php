@@ -146,3 +146,6 @@ Route::view('/Inventarios/Ver', 'inventarios.inventarios')->name('ver_inventario
 
 Route::post('/Login', [usuarios::class, 'login'])->name('login');
 Route::get('/Inventarios/Ver', [inventario::class, 'index'])->name('ver_inventario');
+
+//vistas Reportes
+Route::view('/Reportes/Ver', 'reportes.reportes')->name('ver_reportes');

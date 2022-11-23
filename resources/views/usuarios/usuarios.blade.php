@@ -35,15 +35,7 @@
                     <span>EXCEL</span>
                 </a>
             </button>
-            <button class="btn_download">
-                <a href="{{route('pdf_user')}}">
-                    <span>PDF</span>
-                </a>
-            </button>
-            <button class="btn_download">
-                <a href="{{route('print_user')}}" target="_blank"><span>IMPRIMIR</span>
-                </a>
-            </button>
+ 
         </div>
         <input class="form" id="myInput" type="text" placeholder="Buscar ...">
     </div>

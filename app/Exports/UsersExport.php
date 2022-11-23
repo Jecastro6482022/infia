@@ -14,6 +14,6 @@ class UsersExport implements FromCollection
      */
     public function collection()
     {
-        return tbl_usuarios::all();
+        return tbl_usuarios::leftJoin('tbl_roles as r', 'tbl_usuarios.cod_rol', '=', 'r.cod_rol')->select('tbl_usuarios.*', 'r.nom_rol')->orderBy('id_user', 'asc')->get();
     }
 }

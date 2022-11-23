@@ -1,0 +1,95 @@
+/* formulario registro - editar */
+
+.registrar_usuario {
+    background-color:#ecf6f5;
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+    padding: 4, 5em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0, 0, 0, 30);
+    text-align: center;
+}
+
+
+
+
+.form_submit{
+    background-color: #278787;
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+    font-size: 1rem;
+    padding: 1.1em 0;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    justify-items: center;
+}
+
+
+.form_titulo {
+    font-size: 2em;
+    padding: 20px;
+}
+
+.img {
+    width: 20px;
+
+}
+
+
+input::placeholder {
+    color: black;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+select {
+    background: none;
+    width: 93%;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border-radius: .5em;
+    border: black 1px solid;
+    margin-bottom: 10px;
+}
+
+button.form_submit {
+    width: 100%;
+}
+
+form.registrar_usuario {
+    margin-top: 20px;
+}
+
+form.registrar_usuario a {
+    color: black;
+}
+
+.tabla {
+    margin-bottom: 1rem;
+}
+
+
+/* formulario resposive */
+
+@media(max-width: 425px) {
+    .form_titulo {
+        font-size: 1.8rem;
+    }
+
+    .registrar_usuario {
+        margin-top: 12.5vh;
+    }
+}
+
+@media(max-width: 425px){
+    .form_titulo{
+        font-size: 1.8rem;
+    }
+}

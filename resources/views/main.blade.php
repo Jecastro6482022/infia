@@ -19,26 +19,26 @@
                 <h2 class="titulo_usuarios">Usuarios</h2>
             </div>
             <div class="usuarios">
-                <a href="{{ route('Empresas.index')}}"><img src="img/icons8-cliente-de-empresa-60.png" alt=""></a>
+                <a href="{{ route('Empresas.index')}}"><img src="img/icons8-cliente-de-empresa-60.png" alt="empresas"></a>
                 <h2 class="titulo_usuarios">Empresas</h2>
             </div>
             <div class="usuarios">
-                <a href="{{ route('ver_factura')}}"><img src="img/icons8-invoices-60.png" alt=""></a>
+                <a href="{{ route('ver_factura')}}"><img src="img/icons8-invoices-60.png" alt="facturas"></a>
                 <h2 class="titulo_usuarios">Facturas</h2>
             </div>
             <div class="usuarios">
-                <a href="#"><img src="img/icons8-script-de-informes-de-gráficos.png" alt="usuarios"></a>
+                <a href="{{ route('ver_reportes')}}"><img src="img/icons8-script-de-informes-de-gráficos.png" alt="reportes"></a>
                 <h2 class="titulo_usuarios">Reportes</h2>
             </div>
         </div>
         <div class="containers">
 
             <div class="usuarios">
-                <a href="{{ route('ver_inventario')}}"><img src="img/icons8-producto-nuevo.png" alt="usuarios"></a>
+                <a href="{{ route('ver_inventario')}}"><img src="img/icons8-producto-nuevo.png" alt="invetario"></a>
                 <h2 class="titulo_usuarios">Inventario</h2>
             </div>
             <div class="usuarios">
-                <a href="{{ route('ver_articulo')}}"><img src="img/icons8-suéter.png" alt=""></a>
+                <a href="{{ route('ver_articulo')}}"><img src="img/icons8-suéter.png" alt="articulos"></a>
                 <h2 class="titulo_usuarios">Artículos</h2>
             </div>
             <div class="usuarios">
