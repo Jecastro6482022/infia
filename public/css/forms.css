@@ -1,10 +1,10 @@
 /* formulario registro - editar */
 
-.registrar_usuario {
+.registrar {
     background-color:#ecf6f5;
     margin: auto;
-    width: 100%;
-    max-width: 600px;
+    margin-bottom: 20px;
+    max-width: 50%;
     padding: 4, 5em 3em;
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0, 0, 0, 30);
@@ -13,8 +13,12 @@
 
 .from_group {
     display: flex;
+    flex-flow: column;
+    align-items: flex-start;
     position: relative;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    width: 80%;
 }
 
 .form_titulo {
@@ -24,13 +28,13 @@
 
 .form_container {
     margin-top: 1em;
-    display: grid;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     gap: .5em;
 }
 
-input::placeholder {
-    color: black;
-}
 
 .from_input {
     width: 90%;
@@ -44,7 +48,7 @@ input::placeholder {
 }
 
 .form_submit {
-    background-color: #278787;
+    background-color: #dc3741;
     color: rgb(255, 255, 255);
     font-weight: 300 bold;
     font-size: 1rem;
@@ -57,26 +61,17 @@ a {
     text-decoration: none;
 }
 
-select {
-    background: none;
-    width: 93%;
-    font-weight: 300;
-    font-size: 1rem;
-    padding: .8em 0;
-    border-radius: .5em;
-    border: black 1px solid;
-    margin-bottom: 10px;
-}
+
 
 button.form_submit {
     width: 100%;
 }
 
-form.registrar_usuario {
+form.registrar {
     margin-top: 20px;
 }
 
-form.registrar_usuario a {
+form.registrar a {
     color: black;
 }
 
@@ -92,51 +87,26 @@ form.registrar_usuario a {
         font-size: 1.8rem;
     }
 
-    .registrar_usuario {
+    .registrar {
         margin-top: 12.5vh;
     }
 }
 
 /* Label */
 
-.from_input{
-    width: 90%;
-    background: none;
-    color: rgb(0, 0, 0);
-    font-size: 1rem;
-    padding: .6em .3em;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid;
-}
 
-#form_rc:hover{
-    color: #000000;
-    font-weight: bold;
-}
 
-.from_input:not(:placeholder-shown){
-    color: rgb(44, 44, 44);
-}
 
-.from_input:focus + .from_label,
 .from_input:not(:placeholder-shown) + .from_label{
-    transform: rotateY(-12px) scale(.7);
+    margin-bottom: 10px;
+    top:-10px;
     transform-origin: left top;
     font-weight: bold;
 }
 
-.from_label{
-    cursor: pointer;
-    position: absolute;
-    /* bottom: 2em; */
-    left: 2em;
-    transform: translateY(1em);
-    transition:transform .5s, color .3s;
-}
 
 .form_submit{
-    background-color: #278787;
+    background-color: #dc3741;
     color: rgb(0, 0, 0);
     font-weight: 300;
     font-size: 1rem;
@@ -145,18 +115,21 @@ form.registrar_usuario a {
     border-radius: .5em;
     cursor: pointer;
     font-weight: bold;
+    margin-top: 25px;
 }
 
-.from_line{
+.from_label{
+    cursor: pointer;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color:#000000;
-    transform:scale(0);
-    transform: left bottom;
-    transition:transform .4s;
+    /* bottom: 2em; */
+   
+    transform: translateY(2em);
+    transition:transform .5s, color .3s;
+}
+
+.from_input:focus ~ .from_label,
+.from_input:not(:placeholder-shown) ~ .from_label{
+    transform: scale(1);
 }
 
 .from_input:focus ~ .from_label,

@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('titulo')</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"> -->
     <link rel="stylesheet" href="{{asset('css/reset.css')}}">
     <link rel="stylesheet" href="@yield('estilos')">
     <link rel="stylesheet" href="@yield('estilos2')">
@@ -18,12 +15,10 @@
     <script src="{{ asset('js/swetalerts.js')}}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
-
 <body>
-
     <header>
         <button class="logo">
-            <a href="{{ route('main')}}"><img height="70vw" src="{{ asset('img\Logo letra blanca.png')}}" alt="logo"></a>
+            <a href="{{route('home')}}"><h1 class="title">La Tienda Web</h1></a>
         </button>
         <button class="btn_menu">
             <div class="btn_first"></div>
@@ -32,9 +27,9 @@
         </button>
         <nav class="nav">
             <ul class="lista">
-                <li><a href="{{ route('main')}}" class="active">Menú</a></li>
+                <li><a href="{{ route('home')}}" class="active">Menú</a></li>
                 <li><a href="@yield('link')">@yield('palabra-accion')</a></li>
-                <li><a href="@yield('link2')">@yield('palabra-accion2')</a></li>
+                <li><a href="@yield('link2')">@yield('  2')</a></li>
             </ul>
         </nav>
     </header>
@@ -42,14 +37,10 @@
         <!-- seccion -->
         @yield('seccion')
         <!-- fin seccion -->
-        <div class="div_cerrar">
-            <a href="login.php" class="btn_cerrar">
-                <h3>Cerrar sesión</h3><img src="{{ asset('img/log-out-regular-24.png')}}" alt="">
-            </a>
-        </div>
+      
     </main>
     <script src="@yield('script')"></script>
     <script src="{{ asset('js/main.js')}}"></script>
 </body>
-
 </html>
+

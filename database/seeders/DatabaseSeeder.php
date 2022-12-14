@@ -17,20 +17,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->truncateTables([
-            'tbl_articulos',
-            'tbl_ciudades',
-            'tbl_roles',
-            'tbl_usuarios',
-            'tbl_empresas'
-            // 'tbl_facturas',
-            // 'tbl_facturas',
+            'autores',
+            'categorias',
         ]);
 
-        $this->call(tbl_articuloseedr::class);
-        $this->call(tbl_ciudadeseedr::class);
-        $this->call(tbl_roleseedr::class);
-        $this->call(tbl_usuarioseedr::class);
-        $this->call(tbl_empresaseedr::class);
+        $this->call(autoresseedr::class);
+        $this->call(categoriasseedr::class);
         
     }
 
