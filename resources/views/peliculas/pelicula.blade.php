@@ -21,6 +21,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Id pelicula</th>
                 <th>Id categoria</th>
                 <th>Id autor</th>
@@ -34,6 +35,9 @@
         <tbody id="myTable">
             @foreach ($peliculas as $pelicula)
             <tr>
+                <td data-label="id pelicula">
+                    {{$pelicula->id}}
+                </td>
                 <td data-label="id pelicula">
                     {{$pelicula->id_pelicula}}
                 </td>

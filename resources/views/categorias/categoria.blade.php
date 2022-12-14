@@ -21,7 +21,8 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>id_categoria</th>
+                <th>id</th>
+                <th>id categoria</th>
                 <th>nombre</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
@@ -30,7 +31,9 @@
         <tbody id="myTable">
             @foreach ($categorias as $categoria)
             <tr>
-
+                <td data-label="id">
+                    {{$categoria->id}}
+                </td>
                 <td data-label="id">
                     {{$categoria->id_categoria}}
                 </td>

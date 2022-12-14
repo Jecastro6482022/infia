@@ -19,6 +19,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>idg</th>
                 <th>id autor</th>
                 <th>nombre</th>
                 <th>Editar</th>
@@ -28,6 +29,9 @@
         <tbody id="myTable">
             @foreach ($autores as $autor)
             <tr>
+                <td data-label="id">
+                    {{$autor->id}}
+                </td>
                 <td data-label="id">
                     {{$autor->id_autor}}
                 </td>
